@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Sairam | Cyber Portfolio</title>
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=Share+Tech+Mono&display=swap');
+
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: 'Share Tech Mono', monospace;
+      color: #00ff9c;
+      background: black;
+      overflow: hidden;
+    }
+
+    canvas#bg {
+      position: fixed;
+      top: 0;
+      left: 0;
+      z-index: -1;
+    }
+
+    header {
+      padding: 2rem;
+      text-align: center;
+    }
+
+    h1 {
+      font-size: 2.5rem;
+      margin-bottom: 0.5rem;
+    }
+
+    p {
+      font-size: 1.2rem;
+      max-width: 700px;
+      margin: auto;
+    }
+
+    section {
+      padding: 2rem;
+    }
+
+    h2 {
+      border-left: 4px solid #00ff9c;
+      padding-left: 1rem;
+      margin-bottom: 1rem;
+      font-size: 1.5rem;
+    }
+
+    ul {
+      list-style: none;
+      line-height: 1.8;
+    }
+
+    a {
+      color: #00ff9c;
+      text-decoration: none;
+    }
+  </style>
+</head>
+<body>
+  <canvas id="bg"></canvas>
+
+  <header>
+    <h1>👋 Hi, I'm Sairam</h1>
+    <p>AI/ML Student | Cybersecurity Learner | I build intelligent & secure systems</p>
+  </header>
+
+  <section>
+    <h2>🔧 Skills</h2>
+    <ul>
+      <li>Python, Java, C, R</li>
+      <li>TensorFlow, PyTorch, OpenCV</li>
+      <li>Django, MySQL, SQLite</li>
+      <li>Wireshark, Nmap, Burp Suite</li>
+    </ul>
+  </section>
+
+  <section>
+    <h2>🚀 Projects</h2>
+    <ul>
+      <li><a href="https://github.com/sairam-s0/helmetdection-using-yolo8m-opencv" target="_blank">Helmet Detection with YOLOv8 + OpenCV</a></li>
+      <li><a href="https://github.com/sairam-s0/billing-system" target="_blank">Billing System (Python GUI)</a></li>
+      <li><a href="https://github.com/Vijay-31-08-2005/ponzi-scheme-detection" target="_blank">Ponzi Scheme Detection</a></li>
+    </ul>
+  </section>
+
+  <section>
+    <h2>🎓 Certifications</h2>
+    <ul>
+      <li><a href="https://www.credly.com/badges/bd229915-6b73-44c6-97d9-56bd471724f2/public_url" target="_blank">Junior Cybersecurity Analyst (CISCO)</a></li>
+    </ul>
+  </section>
+
+  <section>
+    <h2>📫 Contact</h2>
+    <p>Email: <a href="mailto:sairam.1242006@gmail.com">sairam.1242006@gmail.com</a></p>
+    <p>LinkedIn: <a href="https://www.linkedin.com/in/sairam-s-092871294/" target="_blank">linkedin.com/in/sairam-s</a></p>
+  </section>
+
+  <script>
+    // Matrix-style animation background
+    const canvas = document.getElementById("bg");
+    const ctx = canvas.getContext("2d");
+
+    canvas.height = window.innerHeight;
+    canvas.width = window.innerWidth;
+
+    const letters = "01".split("");
+    const fontSize = 16;
+    const columns = canvas.width / fontSize;
+    const drops = Array(Math.floor(columns)).fill(1);
+
+    function draw() {
+      ctx.fillStyle = "rgba(0, 0, 0, 0.05)";
+      ctx.fillRect(0, 0, canvas.width, canvas.height);
+
+      ctx.fillStyle = "#00ff9c";
+      ctx.font = fontSize + "px monospace";
+
+      for (let i = 0; i < drops.length; i++) {
+        const text = letters[Math.floor(Math.random() * letters.length)];
+        ctx.fillText(text, i * fontSize, drops[i] * fontSize);
+
+        if (drops[i] * fontSize > canvas.height || Math.random() > 0.95) {
+          drops[i] = 0;
+        }
+        drops[i]++;
+      }
+    }
+
+    setInterval(draw, 33);
+  </script>
+</body>
+</html>
