@@ -30,6 +30,7 @@
     header {
       padding: 2rem;
       text-align: center;
+      animation: fadeIn 2s ease-in-out;
     }
 
     h1 {
@@ -45,6 +46,7 @@
 
     section {
       padding: 2rem;
+      animation: slideUp 1s ease forwards;
     }
 
     h2 {
@@ -73,6 +75,16 @@
       width: 200px;
       border-radius: 8px;
     }
+
+    @keyframes fadeIn {
+      0% { opacity: 0; transform: translateY(-20px); }
+      100% { opacity: 1; transform: translateY(0); }
+    }
+
+    @keyframes slideUp {
+      0% { opacity: 0; transform: translateY(30px); }
+      100% { opacity: 1; transform: translateY(0); }
+    }
   </style>
 </head>
 <body>
@@ -86,8 +98,8 @@
   <section>
     <h2>🔧 Skills</h2>
     <ul>
-      <li>Python, Java, C, R</li>
-      <li>TensorFlow, PyTorch, OpenCV</li>
+      <li>Python, Java, C, </li>
+      <li>TensorFlow, PyTorch, OpenCV,yolo</li>
       <li>Django, MySQL, SQLite</li>
       <li>Wireshark, Nmap, Burp Suite</li>
     </ul>
@@ -133,37 +145,37 @@
   </section>
 
   <script>
-    // Matrix-style animation background
-    const canvas = document.getElementById("bg");
-    const ctx = canvas.getContext("2d");
+  // Matrix-style animation background
+  const canvas = document.getElementById("bg");
+  const ctx = canvas.getContext("2d");
 
-    canvas.height = window.innerHeight;
-    canvas.width = window.innerWidth;
+  canvas.height = window.innerHeight;
+  canvas.width = window.innerWidth;
 
-    const letters = "01".split("");
-    const fontSize = 16;
-    const columns = canvas.width / fontSize;
-    const drops = Array(Math.floor(columns)).fill(1);
+  const letters = "01".split("");
+  const fontSize = 16;
+  const columns = canvas.width / fontSize;
+  const drops = Array(Math.floor(columns)).fill(1);
 
-    function draw() {
-      ctx.fillStyle = "rgba(0, 0, 0, 0.05)";
-      ctx.fillRect(0, 0, canvas.width, canvas.height);
+  function draw() {
+    ctx.fillStyle = "rgba(0, 0, 0, 0.05)";
+    ctx.fillRect(0, 0, canvas.width, canvas.height);
 
-      ctx.fillStyle = "#ff3c3c";
-      ctx.font = fontSize + "px monospace";
+    ctx.fillStyle = "#00ff9c"; // Green matrix numbers
+    ctx.font = fontSize + "px monospace";
 
-      for (let i = 0; i < drops.length; i++) {
-        const text = letters[Math.floor(Math.random() * letters.length)];
-        ctx.fillText(text, i * fontSize, drops[i] * fontSize);
+    for (let i = 0; i < drops.length; i++) {
+      const text = letters[Math.floor(Math.random() * letters.length)];
+      ctx.fillText(text, i * fontSize, drops[i] * fontSize);
 
-        if (drops[i] * fontSize > canvas.height || Math.random() > 0.95) {
-          drops[i] = 0;
-        }
-        drops[i]++;
+      if (drops[i] * fontSize > canvas.height || Math.random() > 0.95) {
+        drops[i] = 0;
       }
+      drops[i]++;
     }
+  }
 
-    setInterval(draw, 33);
+  setInterval(draw, 33);
   </script>
 </body>
 </html>
