@@ -1,0 +1,251 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Sairam | Retro Terminal Portfolio</title>
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=Share+Tech+Mono&display=swap');
+
+    :root {
+      --bg: #0a0c10;
+      --cyan: #00f6ff;
+      --pink: #ff00cc;
+      --green: #00ff99;
+      --yellow: #ffd700;
+      --card-bg: rgba(255, 255, 255, 0.05);
+    }
+
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      scroll-behavior: smooth;
+    }
+
+    body {
+      font-family: 'Share Tech Mono', monospace;
+      background-color: var(--bg);
+      color: var(--cyan);
+      display: flex;
+    }
+
+    /* ---------------- LOADER ---------------- */
+    #loader {
+      position: fixed;
+      top: 0; left: 0;
+      width: 100%; height: 100%;
+      background: black;
+      color: var(--green);
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      font-size: 1.2rem;
+      z-index: 9999;
+    }
+
+    #loader-text {
+      margin-bottom: 1rem;
+    }
+
+    #progress-bar {
+      width: 300px;
+      height: 20px;
+      border: 1px solid var(--green);
+      position: relative;
+      overflow: hidden;
+    }
+
+    #progress-fill {
+      height: 100%;
+      background: var(--green);
+      width: 0%;
+    }
+
+    /* ---------------- SIDEBAR ---------------- */
+    nav {
+      width: 200px;
+      background-color: #07090c;
+      height: 100vh;
+      padding: 2rem 1rem;
+      border-right: 1px solid #222;
+      position: fixed;
+      top: 0;
+      left: 0;
+    }
+
+    nav h2 {
+      font-size: 1.2rem;
+      margin-bottom: 2rem;
+      color: var(--pink);
+    }
+
+    nav a {
+      display: block;
+      color: var(--cyan);
+      text-decoration: none;
+      margin: 1rem 0;
+      transition: 0.3s;
+    }
+
+    nav a:hover {
+      color: var(--yellow);
+      transform: translateX(6px);
+    }
+
+    /* ---------------- MAIN ---------------- */
+    .main {
+      margin-left: 200px;
+      padding: 2rem;
+      width: calc(100% - 200px);
+      background: repeating-linear-gradient(0deg, #0a0c10, #0a0c10 3px, #0c0d12 3px, #0c0d12 6px);
+    }
+
+    section {
+      margin-bottom: 5rem;
+    }
+
+    h1, h2 {
+      color: var(--pink);
+      margin-bottom: 1rem;
+    }
+
+    p, li {
+      color: #ccc;
+      font-size: 1rem;
+    }
+
+    ul {
+      list-style: square;
+      margin-left: 1.5rem;
+    }
+
+    .card {
+      background-color: var(--card-bg);
+      border: 1px solid var(--cyan);
+      padding: 1.5rem;
+      border-radius: 12px;
+      margin-bottom: 1rem;
+      transition: 0.3s;
+    }
+
+    .card:hover {
+      background-color: rgba(255, 255, 255, 0.08);
+      box-shadow: 0 0 10px var(--green);
+    }
+
+    footer {
+      border-top: 1px dashed #333;
+      padding-top: 1rem;
+      font-size: 0.75rem;
+      color: #888;
+      text-align: center;
+    }
+
+    /* Responsive Sidebar Collapse */
+    @media(max-width: 768px) {
+      nav {
+        display: none;
+      }
+
+      .main {
+        margin: 0;
+        width: 100%;
+      }
+    }
+  </style>
+</head>
+<body>
+
+<!-- 🔄 Loader -->
+<div id="loader">
+  <div id="loader-text">Booting SairamOS...</div>
+  <div id="progress-bar">
+    <div id="progress-fill"></div>
+  </div>
+</div>
+
+<!-- 🔍 Sidebar -->
+<nav>
+  <h2>&gt; Menu</h2>
+  <a href="#about">About</a>
+  <a href="#projects">Projects</a>
+  <a href="#certs">Certs</a>
+  <a href="#contact">Contact</a>
+</nav>
+
+<!-- 💻 Main Content -->
+<div class="main">
+  <section id="about">
+    <h1>About Me</h1>
+    <p>I’m Sairam, exploring the overlap of AI/ML and cybersecurity. I work with YOLO, OpenCV, TensorFlow, and secure Python systems.</p>
+  </section>
+
+  <section id="projects">
+    <h2>Projects</h2>
+    <div class="card">
+      <h3 style="color: var(--yellow);">Helmet Detection</h3>
+      <p><a href="https://github.com/sairam-s0/helmetdection-using-yolo8m-opencv" target="_blank">GitHub</a> | YOLOv8 + OpenCV</p>
+    </div>
+    <div class="card">
+      <h3 style="color: var(--green);">Billing System</h3>
+      <p><a href="https://github.com/sairam-s0/billing-system" target="_blank">GitHub</a> | Python + Tkinter</p>
+    </div>
+    <div class="card">
+      <h3 style="color: var(--cyan);">Ponzi Scheme Detector</h3>
+      <p><a href="https://github.com/Vijay-31-08-2005/ponzi-scheme-detection" target="_blank">GitHub</a></p>
+    </div>
+  </section>
+
+  <section id="certs">
+    <h2>Certifications</h2>
+    <ul>
+      <li>🎓 Junior Cybersecurity Analyst – Cisco</li>
+      <li><a href="https://www.credly.com/users/sairam-s.ef012473" target="_blank">View on Credly</a></li>
+    </ul>
+  </section>
+
+  <section id="contact">
+    <h2>Contact</h2>
+    <ul>
+      <li>Email: <a href="mailto:sairam.1242006@gmail.com">sairam.1242006@gmail.com</a></li>
+      <li>LinkedIn: <a href="https://linkedin.com/in/sairam-s-092871294" target="_blank">sairam-s</a></li>
+      <li>GitHub: <a href="https://github.com/sairam-s0" target="_blank">sairam-s0</a></li>
+    </ul>
+  </section>
+
+  <footer>
+    <p>© 2025 Sairam | RAM 36% | MODE: RETRO-DEV</p>
+  </footer>
+</div>
+
+<!-- 🔁 JS Loader Logic -->
+<script>
+  let progress = 0;
+  const fill = document.getElementById('progress-fill');
+  const text = document.getElementById('loader-text');
+
+  const steps = [
+    "Initializing kernel...",
+    "Loading modules...",
+    "Verifying integrity...",
+    "Starting services...",
+    "Boot successful."
+  ];
+
+  const interval = setInterval(() => {
+    progress += 20;
+    fill.style.width = progress + '%';
+    text.innerText = steps[Math.floor(progress / 20)];
+    if (progress >= 100) {
+      clearInterval(interval);
+      setTimeout(() => {
+        document.getElementById('loader').style.display = 'none';
+      }, 500);
+    }
+  }, 600);
+</script>
+
+</body>
+</html>
