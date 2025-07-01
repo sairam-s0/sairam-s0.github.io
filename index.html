@@ -23,34 +23,31 @@
       scroll-behavior: smooth;
     }
 
-    body {
+   body {
   font-family: 'Share Tech Mono', monospace;
-  background: url("backround.jpg") no-repeat center center fixed;
+  background: url("background.jpg") no-repeat center center fixed;
   background-size: cover;
   color: var(--cyan);
   display: flex;
-  animation: carMove 40s linear infinite;
+  position: relative;
+  z-index: 0;
 }
 
-/* Fake moving effect */
-@keyframes carMove {
-  from { background-position-y: 0; }
-  to   { background-position-y: 1000px; }
-}
+    @keyframes carMove {
+      from { background-position-y: 0; }
+      to   { background-position-y: 1000px; }
+    }
 
-/* Dark overlay for readability */
-body::before {
-  content: '';
-  position: fixed;
-  top: 0; left: 0;
-  width: 100vw;
-  height: 100vh;
-  background: rgba(0, 0, 0, 0.55);
-  z-index: -1;
-}
+    body::before {
+      content: '';
+      position: fixed;
+      top: 0; left: 0;
+      width: 100vw;
+      height: 100vh;
+      background: rgba(0, 0, 0, 0.2); /* 🔥 LOWER OPACITY = more visible bg */
+      z-index: -1;
+    }
 
-
-    /* ---------------- BOOT SCREEN ---------------- */
     #boot-screen {
       position: fixed;
       top: 0; left: 0;
@@ -70,7 +67,6 @@ body::before {
       line-height: 1.6;
     }
 
-    /* ---------------- SIDEBAR ---------------- */
     nav {
       width: 200px;
       background-color: #07090c;
@@ -101,12 +97,11 @@ body::before {
       transform: translateX(6px);
     }
 
-    /* ---------------- MAIN ---------------- */
     .main {
       margin-left: 200px;
       padding: 2rem;
       width: calc(100% - 200px);
-      background: repeating-linear-gradient(0deg, #0a0c10, #0a0c10 3px, #0c0d12 3px, #0c0d12 6px);
+      background: repeating-linear-gradient(0deg, transparent, transparent 3px, rgba(0,0,0,0.05) 3px, rgba(0,0,0,0.05) 6px);
     }
 
     section {
@@ -150,7 +145,6 @@ body::before {
       text-align: center;
     }
 
-    /* Responsive Sidebar Collapse */
     @media(max-width: 768px) {
       nav {
         display: none;
@@ -165,12 +159,10 @@ body::before {
 </head>
 <body>
 
-<!-- 🔧 Terminal Boot Screen -->
 <div id="boot-screen">
   <div id="boot-log"></div>
 </div>
 
-<!-- 🔍 Sidebar -->
 <nav>
   <h2>&gt; Menu</h2>
   <a href="#about">About</a>
@@ -179,7 +171,6 @@ body::before {
   <a href="#contact">Contact</a>
 </nav>
 
-<!-- 💻 Main Content -->
 <div class="main" style="display:none;">
   <section id="about">
     <h1>About Me</h1>
@@ -224,7 +215,6 @@ body::before {
   </footer>
 </div>
 
-<!-- 🔁 Boot Animation Script -->
 <script>
   const bootLines = [
     "> [ OK ] Initializing AI Subsystems...",
@@ -238,7 +228,6 @@ body::before {
 
   const bootLog = document.getElementById('boot-log');
   const main = document.querySelector('.main');
-
   let lineIndex = 0;
 
   function showNextLine() {
@@ -255,7 +244,6 @@ body::before {
     }
   }
 
-  // About Me typing
   const aboutText = "Name: Sairam | Role: AI/ML Dev + Cyber Learner | Status: Always debugging.";
   const typingElement = document.getElementById("typing-text");
   let charIndex = 0;
@@ -273,7 +261,6 @@ body::before {
     }
   }
 
-  // Blinking cursor CSS
   const style = document.createElement("style");
   style.innerHTML = `
     @keyframes blink {
@@ -285,7 +272,6 @@ body::before {
   `;
   document.head.appendChild(style);
 
-  // Start boot animation
   window.onload = showNextLine;
 </script>
 
