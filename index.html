@@ -30,37 +30,24 @@
       display: flex;
     }
 
-    /* ---------------- LOADER ---------------- */
-    #loader {
+    /* ---------------- BOOT SCREEN ---------------- */
+    #boot-screen {
       position: fixed;
       top: 0; left: 0;
-      width: 100%; height: 100%;
+      width: 100vw;
+      height: 100vh;
       background: black;
       color: var(--green);
-      display: flex;
-      flex-direction: column;
-      justify-content: center;
-      align-items: center;
-      font-size: 1.2rem;
+      padding: 2rem;
+      font-size: 1rem;
       z-index: 9999;
+      font-family: 'Share Tech Mono', monospace;
+      overflow-y: auto;
     }
 
-    #loader-text {
-      margin-bottom: 1rem;
-    }
-
-    #progress-bar {
-      width: 300px;
-      height: 20px;
-      border: 1px solid var(--green);
-      position: relative;
-      overflow: hidden;
-    }
-
-    #progress-fill {
-      height: 100%;
-      background: var(--green);
-      width: 0%;
+    #boot-log {
+      white-space: pre-wrap;
+      line-height: 1.6;
     }
 
     /* ---------------- SIDEBAR ---------------- */
@@ -158,12 +145,9 @@
 </head>
 <body>
 
-<!-- 🔄 Loader -->
-<div id="loader">
-  <div id="loader-text">Loading kernel modules...</div>
-  <div id="progress-bar">
-    <div id="progress-fill"></div>
-  </div>
+<!-- 🔧 Terminal Boot Screen -->
+<div id="boot-screen">
+  <div id="boot-log"></div>
 </div>
 
 <!-- 🔍 Sidebar -->
@@ -176,7 +160,7 @@
 </nav>
 
 <!-- 💻 Main Content -->
-<div class="main">
+<div class="main" style="display:none;">
   <section id="about">
     <h1>About Me</h1>
     <p id="typing-text"></p>
@@ -220,66 +204,69 @@
   </footer>
 </div>
 
-<!-- 🔁 JavaScript -->
+<!-- 🔁 Boot Animation Script -->
 <script>
-  // Loader animation
-  let progress = 0;
-  const fill = document.getElementById('progress-fill');
-  const text = document.getElementById('loader-text');
-
-  const steps = [
-    "Loading kernel modules...",
-    "AI Core Systems: ONLINE",
-    "Vision Models: DEPLOYED",
-    "Intrusion Detection: ENABLED",
-    "Firewall Protocol: ACTIVE",
-    "Terminal Interface: READY",
-    "Boot Sequence Complete."
+  const bootLines = [
+    "> [ OK ] Initializing AI Subsystems...",
+    "> [ OK ] YOLO Modules Mounted",
+    "> [ OK ] Tensor Cores Linked",
+    "> [FAIL] Legacy Firewall Adapter not found.",
+    "> [ OK ] Visual Pipelines Active",
+    "> [ OK ] Neural Sync Complete",
+    "> [ OK ] Welcome, Sairam."
   ];
 
-  const interval = setInterval(() => {
-    if (progress < 100) {
-      fill.style.width = `${progress}%`;
-      text.innerText = steps[Math.floor(progress / 16.7)] || "Finalizing...";
-      progress += 20;
-    } else {
-      clearInterval(interval);
-      setTimeout(() => {
-        document.getElementById('loader').style.display = 'none';
-        typeLines(); // start typing after loader
-      }, 500);
-    }
-  }, 500);
+  const bootLog = document.getElementById('boot-log');
+  const main = document.querySelector('.main');
 
-  // About typing effect
-  const lines = [
-    "Loading kernel modules...",
-    "AI Core Systems: ONLINE",
-    "Vision Models: DEPLOYED",
-    "Intrusion Detection: ENABLED",
-    "Firewall Protocol: ACTIVE",
-    "Terminal Interface: READY",
-    "Boot Sequence Complete."
-  ];
-
-  const typingElement = document.getElementById("typing-text");
   let lineIndex = 0;
-  let charIndex = 0;
 
-  function typeLines() {
-    if (lineIndex < lines.length) {
-      if (charIndex < lines[lineIndex].length) {
-        typingElement.innerHTML += lines[lineIndex].charAt(charIndex);
-        charIndex++;
-        setTimeout(typeLines, 30);
-      } else {
-        typingElement.innerHTML += "<br/>";
-        charIndex = 0;
-        lineIndex++;
-        setTimeout(typeLines, 300);
-      }
+  function showNextLine() {
+    if (lineIndex < bootLines.length) {
+      bootLog.innerHTML += bootLines[lineIndex] + '\n';
+      lineIndex++;
+      setTimeout(showNextLine, 600);
+    } else {
+      setTimeout(() => {
+        document.getElementById('boot-screen').style.display = 'none';
+        main.style.display = 'block';
+        typeWriter();
+      }, 1000);
     }
   }
+
+  // About Me typing
+  const aboutText = "Name: Sairam | Role: AI/ML Dev + Cyber Learner | Status: Always debugging.";
+  const typingElement = document.getElementById("typing-text");
+  let charIndex = 0;
+
+  function typeWriter() {
+    if (charIndex < aboutText.length) {
+      typingElement.innerHTML += aboutText.charAt(charIndex);
+      charIndex++;
+      setTimeout(typeWriter, 40);
+    } else {
+      const cursor = document.createElement("span");
+      cursor.innerHTML = " >_";
+      cursor.style.animation = "blink 1s step-start 0s infinite";
+      typingElement.appendChild(cursor);
+    }
+  }
+
+  // Blinking cursor CSS
+  const style = document.createElement("style");
+  style.innerHTML = `
+    @keyframes blink {
+      50% { opacity: 0; }
+    }
+    #typing-text span {
+      color: var(--green);
+    }
+  `;
+  document.head.appendChild(style);
+
+  // Start boot animation
+  window.onload = showNextLine;
 </script>
 
 </body>
