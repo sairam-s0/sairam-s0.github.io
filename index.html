@@ -2,10 +2,18 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Sairam | Cyber Portfolio</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Sairam | Terminal Portfolio</title>
   <style>
     @import url('https://fonts.googleapis.com/css2?family=Share+Tech+Mono&display=swap');
+
+    :root {
+      --bg: #0a0c10;
+      --fg: #00ffcc;
+      --accent: #00ff00;
+      --card-bg: rgba(0, 255, 100, 0.05);
+      --glow: 0 0 10px #00ffcc;
+    }
 
     * {
       margin: 0;
@@ -15,167 +23,138 @@
 
     body {
       font-family: 'Share Tech Mono', monospace;
-      color: #ff3c3c;
-      background: black;
-      overflow-x: hidden;
-    }
-
-    canvas#bg {
-      position: fixed;
-      top: 0;
-      left: 0;
-      z-index: -1;
-    }
-
-    header {
+      background-color: var(--bg);
+      color: var(--fg);
       padding: 2rem;
-      text-align: center;
-      animation: fadeIn 2s ease-in-out;
     }
 
     h1 {
-      font-size: 2.5rem;
+      font-size: 4rem;
+      color: cyan;
+      text-shadow: var(--glow);
+      margin-bottom: 1rem;
+    }
+
+    .subtext {
+      color: #aaa;
+      max-width: 400px;
+    }
+
+    .hero {
+      display: flex;
+      justify-content: space-between;
+      flex-wrap: wrap;
+      align-items: center;
+      margin-bottom: 4rem;
+    }
+
+    .about {
+      text-align: right;
+      max-width: 400px;
+    }
+
+    .about h2 {
+      color: var(--accent);
+      font-size: 1.2rem;
+    }
+
+    .about p {
+      color: #ccc;
+      font-size: 0.9rem;
+      margin-top: 0.5rem;
+    }
+
+    .grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+      gap: 2rem;
+      margin-bottom: 4rem;
+    }
+
+    .card {
+      background-color: var(--card-bg);
+      border: 1px solid var(--fg);
+      padding: 2rem;
+      border-radius: 12px;
+      backdrop-filter: blur(5px);
+      transition: 0.3s ease;
+    }
+
+    .card:hover {
+      background-color: rgba(0, 255, 100, 0.15);
+      box-shadow: 0 0 10px #00ff88;
+    }
+
+    .card h3 {
+      color: var(--accent);
       margin-bottom: 0.5rem;
     }
 
-    p {
-      font-size: 1.2rem;
-      max-width: 700px;
-      margin: auto;
+    .card p {
+      color: #aaa;
+      font-size: 0.9rem;
     }
 
-    section {
-      padding: 2rem;
-      animation: slideUp 1s ease forwards;
+    footer {
+      border-top: 1px dashed #333;
+      padding-top: 1rem;
+      font-size: 0.75rem;
+      color: #888;
+      display: flex;
+      justify-content: space-between;
+      font-family: monospace;
     }
 
-    h2 {
-      border-left: 4px solid #ff3c3c;
-      padding-left: 1rem;
-      margin-bottom: 1rem;
-      font-size: 1.5rem;
-    }
-
-    ul {
-      list-style: none;
-      line-height: 1.8;
-    }
-
-    a {
-      color: #ff3c3c;
-      text-decoration: none;
-    }
-
-    .center {
-      text-align: center;
-      margin-top: 2rem;
-    }
-
-    .cert-img {
-      width: 200px;
-      border-radius: 8px;
-    }
-
-    @keyframes fadeIn {
-      0% { opacity: 0; transform: translateY(-20px); }
-      100% { opacity: 1; transform: translateY(0); }
-    }
-
-    @keyframes slideUp {
-      0% { opacity: 0; transform: translateY(30px); }
-      100% { opacity: 1; transform: translateY(0); }
+    .badge {
+      background: #111;
+      padding: 0.3rem 0.6rem;
+      border-radius: 5px;
+      border: 1px solid #444;
+      margin-right: 0.5rem;
     }
   </style>
 </head>
 <body>
-  <canvas id="bg"></canvas>
 
-  <header>
-    <h1>👋 Hi, I'm Sairam</h1>
-    <p>AI/ML Student | Cybersecurity Learner | I build intelligent & secure systems</p>
-  </header>
-
-  <section>
-    <h2>🔧 Skills</h2>
-    <ul>
-      <li>Python, Java, C, </li>
-      <li>TensorFlow, PyTorch, OpenCV,yolo</li>
-      <li>Django, MySQL, SQLite</li>
-      <li>Wireshark, Nmap, Burp Suite</li>
-    </ul>
-  </section>
-
-  <section>
-    <h2>🚀 Projects</h2>
-    <ul>
-      <li><a href="https://github.com/sairam-s0/helmetdection-using-yolo8m-opencv" target="_blank">Helmet Detection with YOLOv8 + OpenCV</a></li>
-      <li><a href="https://github.com/sairam-s0/billing-system" target="_blank">Billing System (Python GUI)</a></li>
-      <li><a href="https://github.com/Vijay-31-08-2005/ponzi-scheme-detection" target="_blank">Ponzi Scheme Detection</a></li>
-    </ul>
-  </section>
-
-  <section>
-    <h2>🎓 Certifications & Badges</h2>
-    <div class="center">
-      <a href="https://www.credly.com/badges/bd229915-6b73-44c6-97d9-56bd471724f2/public_url" target="_blank">
-        <img class="cert-img" src="https://images.credly.com/size/340x340/images/0e1e4300-d59e-4c6f-8f22-eca48c02b8d3/image.png" alt="Junior Cybersecurity Analyst Badge">
-      </a>
-      <p><strong>Junior Cybersecurity Analyst – CISCO (via Credly)</strong></p>
-      <p>More badges on <a href="https://www.credly.com/users/sairam-s.ef012473" target="_blank">my Credly profile</a></p>
+  <div class="hero">
+    <div>
+      <h1>WELCOME<br>TO MY SITE</h1>
+      <p class="subtext">I'm Sairam — AI/ML learner & Cybersecurity explorer.<br>I build smart & secure systems.</p>
     </div>
-  </section>
 
-  <section>
-    <h2>📈 GitHub Stats</h2>
-    <div class="center">
-      <p>
-        <img src="https://github-readme-stats.vercel.app/api?username=sairam-s0&theme=dark&hide_border=false" width="48%">
-        <img src="https://github-readme-stats.vercel.app/api/top-langs/?username=sairam-s0&layout=compact&theme=dark&hide_border=false" width="48%">
-      </p>
-      <p>
-        <img src="https://nirzak-streak-stats.vercel.app/?user=sairam-s0&theme=dark&hide_border=false">
-      </p>
+    <div class="about">
+      <h2>ABOUT ME</h2>
+      <p>AI/ML, Threat Intel, Python<br>Wearing a hoodie but writing clean code 💻</p>
     </div>
-  </section>
+  </div>
 
-  <section>
-    <h2>📫 Contact</h2>
-    <p>Email: <a href="mailto:sairam.1242006@gmail.com">sairam.1242006@gmail.com</a></p>
-    <p>LinkedIn: <a href="https://www.linkedin.com/in/sairam-s-092871294/" target="_blank">linkedin.com/in/sairam-s</a></p>
-  </section>
+  <div class="grid">
+    <div class="card">
+      <h3>Projects</h3>
+      <p><a href="https://github.com/sairam-s0/helmetdection-using-yolo8m-opencv">Helmet Detection</a><br>Billing System<br>Ponzi Detector</p>
+    </div>
+    <div class="card">
+      <h3>Links</h3>
+      <p>Email<br><a href="https://linkedin.com/in/sairam-s-092871294">LinkedIn</a><br><a href="https://github.com/sairam-s0">GitHub</a></p>
+    </div>
+    <div class="card">
+      <h3>Certs</h3>
+      <p>Cisco Cyber Analyst Badge<br><a href="https://www.credly.com/users/sairam-s.ef012473">Credly</a></p>
+    </div>
+    <div class="card">
+      <h3>More</h3>
+      <p>Exploring YOLO, OpenCV, Django<br>Currently building ML security tools</p>
+    </div>
+  </div>
 
-  <script>
-  // Matrix-style animation background
-  const canvas = document.getElementById("bg");
-  const ctx = canvas.getContext("2d");
+  <footer>
+    <div>
+      <span class="badge">MODE: RETRO</span>
+      <span class="badge">CPU 14%</span>
+      <span class="badge">GPU N/A</span>
+    </div>
+    <div>© 2025 Sairam</div>
+  </footer>
 
-  canvas.height = window.innerHeight;
-  canvas.width = window.innerWidth;
-
-  const letters = "01".split("");
-  const fontSize = 16;
-  const columns = canvas.width / fontSize;
-  const drops = Array(Math.floor(columns)).fill(1);
-
-  function draw() {
-    ctx.fillStyle = "rgba(0, 0, 0, 0.05)";
-    ctx.fillRect(0, 0, canvas.width, canvas.height);
-
-    ctx.fillStyle = "#00ff9c"; // Green matrix numbers
-    ctx.font = fontSize + "px monospace";
-
-    for (let i = 0; i < drops.length; i++) {
-      const text = letters[Math.floor(Math.random() * letters.length)];
-      ctx.fillText(text, i * fontSize, drops[i] * fontSize);
-
-      if (drops[i] * fontSize > canvas.height || Math.random() > 0.95) {
-        drops[i] = 0;
-      }
-      drops[i]++;
-    }
-  }
-
-  setInterval(draw, 33);
-  </script>
 </body>
 </html>
