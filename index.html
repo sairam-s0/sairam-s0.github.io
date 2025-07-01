@@ -3,96 +3,131 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Sairam | Terminal Portfolio</title>
+  <title>Sairam | Retro Terminal Portfolio</title>
   <style>
     @import url('https://fonts.googleapis.com/css2?family=Share+Tech+Mono&display=swap');
 
     :root {
       --bg: #0a0c10;
       --fg: #00ffcc;
-      --accent: #00ff00;
+      --accent: #00ff44;
       --card-bg: rgba(0, 255, 100, 0.05);
-      --glow: 0 0 10px #00ffcc;
     }
 
     * {
       margin: 0;
       padding: 0;
       box-sizing: border-box;
+      scroll-behavior: smooth;
     }
 
     body {
       font-family: 'Share Tech Mono', monospace;
       background-color: var(--bg);
       color: var(--fg);
-      padding: 2rem;
+      display: flex;
     }
 
-    h1 {
-      font-size: 4rem;
-      color: cyan;
-      text-shadow: var(--glow);
+    /* Loader */
+    #loader {
+      position: fixed;
+      top: 0; left: 0;
+      width: 100%; height: 100%;
+      background: black;
+      color: var(--fg);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-direction: column;
+      font-size: 1.2rem;
+      z-index: 9999;
+    }
+
+    .typing {
+      overflow: hidden;
+      border-right: 2px solid var(--fg);
+      white-space: nowrap;
+      animation: typing 2.5s steps(30, end), blink 0.8s step-end infinite;
+    }
+
+    @keyframes typing {
+      from { width: 0 }
+      to { width: 100% }
+    }
+
+    @keyframes blink {
+      50% { border-color: transparent }
+    }
+
+    /* Sidebar */
+    nav {
+      width: 200px;
+      background-color: #07090c;
+      height: 100vh;
+      padding: 2rem 1rem;
+      border-right: 1px solid #222;
+      position: fixed;
+      top: 0;
+      left: 0;
+    }
+
+    nav h2 {
+      font-size: 1.2rem;
+      margin-bottom: 2rem;
+      color: var(--accent);
+    }
+
+    nav a {
+      display: block;
+      color: var(--fg);
+      text-decoration: none;
+      margin: 1rem 0;
+      transition: 0.3s;
+    }
+
+    nav a:hover {
+      color: var(--accent);
+      transform: translateX(5px);
+    }
+
+    /* Content */
+    .main {
+      margin-left: 200px;
+      padding: 2rem;
+      width: calc(100% - 200px);
+    }
+
+    section {
+      margin-bottom: 5rem;
+    }
+
+    h1, h2 {
+      color: var(--accent);
       margin-bottom: 1rem;
     }
 
-    .subtext {
-      color: #aaa;
-      max-width: 400px;
-    }
-
-    .hero {
-      display: flex;
-      justify-content: space-between;
-      flex-wrap: wrap;
-      align-items: center;
-      margin-bottom: 4rem;
-    }
-
-    .about {
-      text-align: right;
-      max-width: 400px;
-    }
-
-    .about h2 {
-      color: var(--accent);
-      font-size: 1.2rem;
-    }
-
-    .about p {
+    p, li {
       color: #ccc;
-      font-size: 0.9rem;
-      margin-top: 0.5rem;
+      font-size: 1rem;
     }
 
-    .grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-      gap: 2rem;
-      margin-bottom: 4rem;
+    ul {
+      list-style: square;
+      margin-left: 1.5rem;
     }
 
     .card {
       background-color: var(--card-bg);
       border: 1px solid var(--fg);
-      padding: 2rem;
+      padding: 1.5rem;
       border-radius: 12px;
-      backdrop-filter: blur(5px);
-      transition: 0.3s ease;
+      margin-bottom: 1rem;
+      transition: 0.3s;
     }
 
     .card:hover {
-      background-color: rgba(0, 255, 100, 0.15);
-      box-shadow: 0 0 10px #00ff88;
-    }
-
-    .card h3 {
-      color: var(--accent);
-      margin-bottom: 0.5rem;
-    }
-
-    .card p {
-      color: #aaa;
-      font-size: 0.9rem;
+      background-color: rgba(0, 255, 100, 0.1);
+      box-shadow: 0 0 10px var(--accent);
     }
 
     footer {
@@ -100,61 +135,77 @@
       padding-top: 1rem;
       font-size: 0.75rem;
       color: #888;
-      display: flex;
-      justify-content: space-between;
-      font-family: monospace;
-    }
-
-    .badge {
-      background: #111;
-      padding: 0.3rem 0.6rem;
-      border-radius: 5px;
-      border: 1px solid #444;
-      margin-right: 0.5rem;
+      text-align: center;
     }
   </style>
 </head>
 <body>
 
-  <div class="hero">
-    <div>
-      <h1>WELCOME<br>TO MY SITE</h1>
-      <p class="subtext">I'm Sairam — AI/ML learner & Cybersecurity explorer.<br>I build smart & secure systems.</p>
-    </div>
+<!-- Loader -->
+<div id="loader">
+  <div class="typing">Booting SairamOS... Loading modules...</div>
+</div>
 
-    <div class="about">
-      <h2>ABOUT ME</h2>
-      <p>AI/ML, Threat Intel, Python<br>Wearing a hoodie but writing clean code 💻</p>
-    </div>
-  </div>
+<!-- Sidebar Navigation -->
+<nav>
+  <h2>&gt; Terminal</h2>
+  <a href="#about">About Me</a>
+  <a href="#projects">Projects</a>
+  <a href="#certs">Certifications</a>
+  <a href="#contact">Contact</a>
+</nav>
 
-  <div class="grid">
+<!-- Main Content -->
+<div class="main">
+  <section id="about">
+    <h1>About Me</h1>
+    <p>I'm Sairam — a student passionate about AI, ML, and cybersecurity. I build intelligent and secure systems using YOLO, OpenCV, and Python.</p>
+  </section>
+
+  <section id="projects">
+    <h2>Projects</h2>
     <div class="card">
-      <h3>Projects</h3>
-      <p><a href="https://github.com/sairam-s0/helmetdection-using-yolo8m-opencv">Helmet Detection</a><br>Billing System<br>Ponzi Detector</p>
+      <h3>Helmet Detection (YOLOv8 + OpenCV)</h3>
+      <p><a href="https://github.com/sairam-s0/helmetdection-using-yolo8m-opencv" target="_blank">GitHub Link</a></p>
     </div>
     <div class="card">
-      <h3>Links</h3>
-      <p>Email<br><a href="https://linkedin.com/in/sairam-s-092871294">LinkedIn</a><br><a href="https://github.com/sairam-s0">GitHub</a></p>
+      <h3>Billing System (Python + Tkinter)</h3>
+      <p><a href="https://github.com/sairam-s0/billing-system" target="_blank">GitHub Link</a></p>
     </div>
     <div class="card">
-      <h3>Certs</h3>
-      <p>Cisco Cyber Analyst Badge<br><a href="https://www.credly.com/users/sairam-s.ef012473">Credly</a></p>
+      <h3>Ponzi Scheme Detection</h3>
+      <p><a href="https://github.com/Vijay-31-08-2005/ponzi-scheme-detection" target="_blank">GitHub Link</a></p>
     </div>
-    <div class="card">
-      <h3>More</h3>
-      <p>Exploring YOLO, OpenCV, Django<br>Currently building ML security tools</p>
-    </div>
-  </div>
+  </section>
+
+  <section id="certs">
+    <h2>Certifications</h2>
+    <ul>
+      <li>Junior Cybersecurity Analyst – Cisco</li>
+      <li><a href="https://www.credly.com/users/sairam-s.ef012473" target="_blank">View Badges on Credly</a></li>
+    </ul>
+  </section>
+
+  <section id="contact">
+    <h2>Contact</h2>
+    <ul>
+      <li>Email: <a href="mailto:sairam.1242006@gmail.com">sairam.1242006@gmail.com</a></li>
+      <li>LinkedIn: <a href="https://linkedin.com/in/sairam-s-092871294" target="_blank">sairam-s</a></li>
+      <li>GitHub: <a href="https://github.com/sairam-s0" target="_blank">sairam-s0</a></li>
+    </ul>
+  </section>
 
   <footer>
-    <div>
-      <span class="badge">MODE: RETRO</span>
-      <span class="badge">CPU 14%</span>
-      <span class="badge">GPU N/A</span>
-    </div>
-    <div>© 2025 Sairam</div>
+    <p>© 2025 Sairam | CPU 15% | MODE: RETRO</p>
   </footer>
+</div>
 
+<script>
+  window.addEventListener('load', () => {
+    setTimeout(() => {
+      document.getElementById('loader').style.display = 'none';
+    }, 2500); // Adjust loading duration here
+  });
+</script>
 </body>
 </html>
