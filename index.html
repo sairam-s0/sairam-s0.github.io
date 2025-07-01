@@ -9,9 +9,11 @@
 
     :root {
       --bg: #0a0c10;
-      --fg: #00ffcc;
-      --accent: #00ff44;
-      --card-bg: rgba(0, 255, 100, 0.05);
+      --cyan: #00f6ff;
+      --pink: #ff00cc;
+      --green: #00ff99;
+      --yellow: #ffd700;
+      --card-bg: rgba(255, 255, 255, 0.05);
     }
 
     * {
@@ -24,42 +26,44 @@
     body {
       font-family: 'Share Tech Mono', monospace;
       background-color: var(--bg);
-      color: var(--fg);
+      color: var(--cyan);
       display: flex;
     }
 
-    /* Loader */
+    /* ---------------- LOADER ---------------- */
     #loader {
       position: fixed;
       top: 0; left: 0;
       width: 100%; height: 100%;
       background: black;
-      color: var(--fg);
+      color: var(--green);
       display: flex;
-      align-items: center;
-      justify-content: center;
       flex-direction: column;
+      justify-content: center;
+      align-items: center;
       font-size: 1.2rem;
       z-index: 9999;
     }
 
-    .typing {
+    #loader-text {
+      margin-bottom: 1rem;
+    }
+
+    #progress-bar {
+      width: 300px;
+      height: 20px;
+      border: 1px solid var(--green);
+      position: relative;
       overflow: hidden;
-      border-right: 2px solid var(--fg);
-      white-space: nowrap;
-      animation: typing 2.5s steps(30, end), blink 0.8s step-end infinite;
     }
 
-    @keyframes typing {
-      from { width: 0 }
-      to { width: 100% }
+    #progress-fill {
+      height: 100%;
+      background: var(--green);
+      width: 0%;
     }
 
-    @keyframes blink {
-      50% { border-color: transparent }
-    }
-
-    /* Sidebar */
+    /* ---------------- SIDEBAR ---------------- */
     nav {
       width: 200px;
       background-color: #07090c;
@@ -74,27 +78,28 @@
     nav h2 {
       font-size: 1.2rem;
       margin-bottom: 2rem;
-      color: var(--accent);
+      color: var(--pink);
     }
 
     nav a {
       display: block;
-      color: var(--fg);
+      color: var(--cyan);
       text-decoration: none;
       margin: 1rem 0;
       transition: 0.3s;
     }
 
     nav a:hover {
-      color: var(--accent);
-      transform: translateX(5px);
+      color: var(--yellow);
+      transform: translateX(6px);
     }
 
-    /* Content */
+    /* ---------------- MAIN ---------------- */
     .main {
       margin-left: 200px;
       padding: 2rem;
       width: calc(100% - 200px);
+      background: repeating-linear-gradient(0deg, #0a0c10, #0a0c10 3px, #0c0d12 3px, #0c0d12 6px);
     }
 
     section {
@@ -102,7 +107,7 @@
     }
 
     h1, h2 {
-      color: var(--accent);
+      color: var(--pink);
       margin-bottom: 1rem;
     }
 
@@ -118,7 +123,7 @@
 
     .card {
       background-color: var(--card-bg);
-      border: 1px solid var(--fg);
+      border: 1px solid var(--cyan);
       padding: 1.5rem;
       border-radius: 12px;
       margin-bottom: 1rem;
@@ -126,8 +131,8 @@
     }
 
     .card:hover {
-      background-color: rgba(0, 255, 100, 0.1);
-      box-shadow: 0 0 10px var(--accent);
+      background-color: rgba(255, 255, 255, 0.08);
+      box-shadow: 0 0 10px var(--green);
     }
 
     footer {
@@ -137,52 +142,67 @@
       color: #888;
       text-align: center;
     }
+
+    /* Responsive Sidebar Collapse */
+    @media(max-width: 768px) {
+      nav {
+        display: none;
+      }
+
+      .main {
+        margin: 0;
+        width: 100%;
+      }
+    }
   </style>
 </head>
 <body>
 
-<!-- Loader -->
+<!-- 🔄 Loader -->
 <div id="loader">
-  <div class="typing">Booting SairamOS... Loading modules...</div>
+  <div id="loader-text">Loading kernel modules...</div>
+  <div id="progress-bar">
+    <div id="progress-fill"></div>
+  </div>
 </div>
 
-<!-- Sidebar Navigation -->
+<!-- 🔍 Sidebar -->
 <nav>
-  <h2>&gt; Terminal</h2>
-  <a href="#about">About Me</a>
+  <h2>&gt; Menu</h2>
+  <a href="#about">About</a>
   <a href="#projects">Projects</a>
-  <a href="#certs">Certifications</a>
+  <a href="#certs">Certs</a>
   <a href="#contact">Contact</a>
 </nav>
 
-<!-- Main Content -->
+<!-- 💻 Main Content -->
 <div class="main">
   <section id="about">
     <h1>About Me</h1>
-    <p>I'm Sairam — a student passionate about AI, ML, and cybersecurity. I build intelligent and secure systems using YOLO, OpenCV, and Python.</p>
+    <p id="typing-text"></p>
   </section>
 
   <section id="projects">
     <h2>Projects</h2>
     <div class="card">
-      <h3>Helmet Detection (YOLOv8 + OpenCV)</h3>
-      <p><a href="https://github.com/sairam-s0/helmetdection-using-yolo8m-opencv" target="_blank">GitHub Link</a></p>
+      <h3 style="color: var(--yellow);">Helmet Detection</h3>
+      <p><a href="https://github.com/sairam-s0/helmetdection-using-yolo8m-opencv" target="_blank">GitHub</a> | YOLOv8 + OpenCV</p>
     </div>
     <div class="card">
-      <h3>Billing System (Python + Tkinter)</h3>
-      <p><a href="https://github.com/sairam-s0/billing-system" target="_blank">GitHub Link</a></p>
+      <h3 style="color: var(--green);">Billing System</h3>
+      <p><a href="https://github.com/sairam-s0/billing-system" target="_blank">GitHub</a> | Python + Tkinter</p>
     </div>
     <div class="card">
-      <h3>Ponzi Scheme Detection</h3>
-      <p><a href="https://github.com/Vijay-31-08-2005/ponzi-scheme-detection" target="_blank">GitHub Link</a></p>
+      <h3 style="color: var(--cyan);">Ponzi Scheme Detector</h3>
+      <p><a href="https://github.com/Vijay-31-08-2005/ponzi-scheme-detection" target="_blank">GitHub</a></p>
     </div>
   </section>
 
   <section id="certs">
     <h2>Certifications</h2>
     <ul>
-      <li>Junior Cybersecurity Analyst – Cisco</li>
-      <li><a href="https://www.credly.com/users/sairam-s.ef012473" target="_blank">View Badges on Credly</a></li>
+      <li>🎓 Junior Cybersecurity Analyst – Cisco</li>
+      <li><a href="https://www.credly.com/users/sairam-s.ef012473" target="_blank">View on Credly</a></li>
     </ul>
   </section>
 
@@ -196,16 +216,71 @@
   </section>
 
   <footer>
-    <p>© 2025 Sairam | CPU 15% | MODE: RETRO</p>
+    <p>© 2025 Sairam | RAM 36% | MODE: RETRO-DEV</p>
   </footer>
 </div>
 
+<!-- 🔁 JavaScript -->
 <script>
-  window.addEventListener('load', () => {
-    setTimeout(() => {
-      document.getElementById('loader').style.display = 'none';
-    }, 2500); // Adjust loading duration here
-  });
+  // Loader animation
+  let progress = 0;
+  const fill = document.getElementById('progress-fill');
+  const text = document.getElementById('loader-text');
+
+  const steps = [
+    "Loading kernel modules...",
+    "AI Core Systems: ONLINE",
+    "Vision Models: DEPLOYED",
+    "Intrusion Detection: ENABLED",
+    "Firewall Protocol: ACTIVE",
+    "Terminal Interface: READY",
+    "Boot Sequence Complete."
+  ];
+
+  const interval = setInterval(() => {
+    if (progress < 100) {
+      fill.style.width = `${progress}%`;
+      text.innerText = steps[Math.floor(progress / 16.7)] || "Finalizing...";
+      progress += 20;
+    } else {
+      clearInterval(interval);
+      setTimeout(() => {
+        document.getElementById('loader').style.display = 'none';
+        typeLines(); // start typing after loader
+      }, 500);
+    }
+  }, 500);
+
+  // About typing effect
+  const lines = [
+    "Loading kernel modules...",
+    "AI Core Systems: ONLINE",
+    "Vision Models: DEPLOYED",
+    "Intrusion Detection: ENABLED",
+    "Firewall Protocol: ACTIVE",
+    "Terminal Interface: READY",
+    "Boot Sequence Complete."
+  ];
+
+  const typingElement = document.getElementById("typing-text");
+  let lineIndex = 0;
+  let charIndex = 0;
+
+  function typeLines() {
+    if (lineIndex < lines.length) {
+      if (charIndex < lines[lineIndex].length) {
+        typingElement.innerHTML += lines[lineIndex].charAt(charIndex);
+        charIndex++;
+        setTimeout(typeLines, 30);
+      } else {
+        typingElement.innerHTML += "<br/>";
+        charIndex = 0;
+        lineIndex++;
+        setTimeout(typeLines, 300);
+      }
+    }
+  }
 </script>
+
 </body>
 </html>
