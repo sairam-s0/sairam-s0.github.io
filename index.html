@@ -1,256 +1,238 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Sairam | AI/ML Developer</title>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
-  <style>
-    * { box-sizing: border-box; margin: 0; padding: 0; }
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Sairam — AI/ML Developer</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --cream: #FBF8F2;
+    --card: #FFFFFF;
+    --olive: #5B6B3A;
+    --olive-dark: #3F4A29;
+    --olive-soft: #EEF0E3;
+    --border: #E6E0D2;
+    --text: #3A3A33;
+    --muted: #8C8876;
+    --radius: 18px;
+  }
 
-    body {
-      background: #faf8f5;
-      color: #1a1a1a;
-      font-family: 'Inter', sans-serif;
-      font-size: 15px;
-      line-height: 1.7;
-      min-height: 100vh;
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+
+  body{
+    background: var(--cream);
+    color: var(--text);
+    font-family: 'Inter', sans-serif;
+    font-size: 15px;
+    line-height: 1.7;
+  }
+
+  a { color: var(--olive-dark); text-decoration: none; }
+  a:hover { text-decoration: underline; }
+
+  /* LAYOUT */
+  .layout{
+    display: grid;
+    grid-template-columns: 270px 1fr;
+    min-height: 100vh;
+  }
+
+  .sidebar{
+    background: var(--olive-soft);
+    border-right: 1px solid var(--border);
+    padding: 48px 30px;
+    position: sticky;
+    top: 0;
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    gap: 36px;
+  }
+
+  .avatar{
+    width: 52px;
+    height: 52px;
+    border-radius: 50%;
+    background: var(--olive);
+    color: #fff;
+    font-weight: 600;
+    font-size: 1.1rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 14px;
+  }
+
+  .sidebar-name{ font-size: 1.3rem; font-weight: 700; color: var(--olive-dark); margin-bottom: 6px; }
+  .sidebar-role{ font-size: 0.84rem; color: var(--muted); line-height: 1.6; }
+
+  .sidebar-nav{ display: flex; flex-direction: column; gap: 3px; }
+  .sidebar-nav a{
+    font-size: 0.88rem;
+    font-weight: 500;
+    color: #5b5945;
+    padding: 8px 12px;
+    border-radius: 10px;
+    transition: background 0.15s, color 0.15s;
+  }
+  .sidebar-nav a:hover{ background: #fff; color: var(--olive-dark); text-decoration: none; }
+
+  .sidebar-links{ display: flex; flex-direction: column; gap: 9px; margin-top: auto; }
+  .sidebar-links a{
+    font-size: 0.83rem;
+    color: var(--olive-dark);
+    font-weight: 500;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+  }
+  .sidebar-links a:hover{ text-decoration: none; opacity: 0.7; }
+  .dot{ width: 6px; height: 6px; border-radius: 50%; background: var(--olive); flex-shrink: 0; }
+
+  /* MAIN */
+  .main{ padding: 60px 70px 80px; max-width: 880px; }
+  section{ margin-bottom: 56px; }
+
+  h2{
+    font-size: 0.74rem;
+    font-weight: 700;
+    letter-spacing: 0.09em;
+    text-transform: uppercase;
+    color: var(--muted);
+    margin-bottom: 18px;
+  }
+
+  p{ color: #4d4a3e; margin-bottom: 10px; font-size: 0.94rem; }
+  ul{ padding-left: 1.15rem; color: #4d4a3e; }
+  ul li{ margin-bottom: 5px; font-size: 0.88rem; }
+
+  /* HERO */
+  .hero h1{
+    font-size: 2.05rem;
+    font-weight: 700;
+    color: var(--olive-dark);
+    margin-bottom: 12px;
+    line-height: 1.3;
+  }
+  .hero p{ font-size: 0.97rem; color: #524f42; max-width: 540px; }
+
+  /* PROJECTS */
+  .project{
+    border: 1px solid var(--border);
+    border-radius: var(--radius);
+    margin-bottom: 12px;
+    background: var(--card);
+    overflow: hidden;
+    transition: border-color 0.15s;
+  }
+  .project:hover{ border-color: #d4cdb8; }
+
+  .project-header{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 18px 22px;
+    cursor: pointer;
+    user-select: none;
+  }
+
+  .project-title{ font-weight: 600; font-size: 0.95rem; color: var(--text); }
+  .project-sub{ font-size: 0.81rem; color: var(--muted); margin-top: 3px; }
+
+  .chevron{
+    font-size: 0.7rem;
+    color: #c2bca6;
+    transition: transform 0.25s;
+    flex-shrink: 0;
+    margin-left: 14px;
+  }
+  .project.open .chevron{ transform: rotate(180deg); color: var(--olive); }
+
+  .project-body{ max-height: 0; overflow: hidden; transition: max-height 0.35s ease; }
+  .project.open .project-body{ max-height: 420px; }
+
+  .project-body-inner{ padding: 0 22px 22px; border-top: 1px solid #f1ede1; padding-top: 16px; }
+  .project-body-inner p{ font-size: 0.87rem; margin-bottom: 12px; color: #5b5847; }
+  .project-body-inner ul{ font-size: 0.85rem; margin-bottom: 16px; }
+
+  .gh-link{ font-size: 0.85rem; font-weight: 600; color: var(--olive-dark); }
+
+  /* SKILLS */
+  .skills-grid{ display: grid; grid-template-columns: 1fr 1fr; gap: 26px 24px; }
+  .skill-group-label{
+    font-size: 0.74rem;
+    font-weight: 700;
+    color: var(--olive);
+    text-transform: uppercase;
+    letter-spacing: 0.06em;
+    margin-bottom: 10px;
+  }
+  .chips{ display: flex; flex-wrap: wrap; gap: 7px; }
+  .chip{
+    font-size: 0.78rem;
+    background: var(--olive-soft);
+    color: #4a5535;
+    padding: 5px 12px;
+    border-radius: 20px;
+    border: 1px solid #e0e4d2;
+  }
+
+  /* TIMELINE */
+  .timeline-item{
+    display: grid;
+    grid-template-columns: 70px 1fr;
+    gap: 14px;
+    margin-bottom: 16px;
+    align-items: baseline;
+  }
+  .t-year{ font-size: 0.83rem; font-weight: 700; color: var(--olive); }
+  .t-desc{ font-size: 0.89rem; color: #4d4a3e; }
+
+  /* CONTACT */
+  .contact-card{
+    background: var(--card);
+    border: 1px solid var(--border);
+    border-radius: var(--radius);
+    padding: 24px 26px;
+  }
+  .contact-card p{ font-size: 0.92rem; margin-bottom: 8px; }
+  .cert-badge{
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    margin-top: 10px;
+    font-size: 0.85rem;
+    font-weight: 500;
+  }
+
+  footer{ font-size: 0.78rem; color: #c5c0ac; margin-top: 50px; }
+
+  @media (max-width: 720px){
+    .layout{ grid-template-columns: 1fr; }
+    .sidebar{
+      position: static; height: auto;
+      flex-direction: row; flex-wrap: wrap;
+      padding: 26px 22px; gap: 18px;
+      border-right: none; border-bottom: 1px solid var(--border);
     }
-
-    /* LAYOUT */
-    .layout {
-      display: grid;
-      grid-template-columns: 260px 1fr;
-      min-height: 100vh;
-    }
-
-    /* SIDEBAR */
-    .sidebar {
-      background: #f2efe9;
-      border-right: 1px solid #e5e0d8;
-      padding: 48px 28px;
-      position: sticky;
-      top: 0;
-      height: 100vh;
-      display: flex;
-      flex-direction: column;
-      gap: 32px;
-    }
-
-    .sidebar-name {
-      font-size: 1.25rem;
-      font-weight: 600;
-      margin-bottom: 4px;
-    }
-
-    .sidebar-role {
-      font-size: 0.82rem;
-      color: #777;
-      line-height: 1.6;
-    }
-
-    .sidebar-nav {
-      display: flex;
-      flex-direction: column;
-      gap: 4px;
-    }
-
-    .sidebar-nav a {
-      font-size: 0.88rem;
-      color: #555;
-      text-decoration: none;
-      padding: 6px 10px;
-      border-radius: 6px;
-      transition: background 0.15s, color 0.15s;
-    }
-
-    .sidebar-nav a:hover {
-      background: #e8e3db;
-      color: #111;
-    }
-
-    .sidebar-links {
-      display: flex;
-      flex-direction: column;
-      gap: 8px;
-      margin-top: auto;
-    }
-
-    .sidebar-links a {
-      font-size: 0.82rem;
-      color: #2563eb;
-      text-decoration: none;
-      display: flex;
-      align-items: center;
-      gap: 6px;
-    }
-
-    .sidebar-links a:hover { text-decoration: underline; }
-
-    /* MAIN */
-    .main {
-      padding: 56px 64px;
-      max-width: 860px;
-    }
-
-    section { margin-bottom: 52px; }
-
-    h2 {
-      font-size: 0.75rem;
-      font-weight: 600;
-      letter-spacing: 0.08em;
-      text-transform: uppercase;
-      color: #999;
-      margin-bottom: 16px;
-    }
-
-    p { color: #444; margin-bottom: 10px; font-size: 0.93rem; }
-
-    a { color: #2563eb; text-decoration: none; }
-    a:hover { text-decoration: underline; }
-
-    ul { padding-left: 1.2rem; color: #444; }
-    ul li { margin-bottom: 4px; font-size: 0.88rem; }
-
-    /* HERO */
-    .hero h1 {
-      font-size: 2rem;
-      font-weight: 600;
-      margin-bottom: 10px;
-      line-height: 1.25;
-    }
-
-    .hero p {
-      font-size: 0.95rem;
-      color: #555;
-      max-width: 520px;
-    }
-
-    /* PROJECTS */
-    .project {
-      border: 1px solid #e5e0d8;
-      border-radius: 8px;
-      margin-bottom: 10px;
-      background: #fff;
-      overflow: hidden;
-    }
-
-    .project-header {
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      padding: 14px 18px;
-      cursor: pointer;
-      user-select: none;
-    }
-
-    .project-header:hover { background: #faf7f3; }
-
-    .project-title { font-weight: 500; font-size: 0.93rem; }
-    .project-sub { font-size: 0.8rem; color: #999; margin-top: 2px; }
-
-    .chevron {
-      font-size: 0.7rem;
-      color: #bbb;
-      transition: transform 0.25s;
-      flex-shrink: 0;
-      margin-left: 12px;
-    }
-    .project.open .chevron { transform: rotate(180deg); color: #666; }
-
-    .project-body {
-      max-height: 0;
-      overflow: hidden;
-      transition: max-height 0.35s ease;
-    }
-    .project.open .project-body { max-height: 400px; }
-
-    .project-body-inner {
-      padding: 14px 18px 18px;
-      border-top: 1px solid #f0ece6;
-    }
-
-    .project-body-inner p { font-size: 0.86rem; margin-bottom: 10px; color: #555; }
-    .project-body-inner ul { font-size: 0.84rem; margin-bottom: 14px; color: #555; }
-
-    .gh-link { font-size: 0.84rem; font-weight: 500; color: #2563eb; }
-
-    /* SKILLS */
-    .skills-grid {
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 20px;
-    }
-
-    .skill-group-label {
-      font-size: 0.75rem;
-      font-weight: 600;
-      color: #aaa;
-      text-transform: uppercase;
-      letter-spacing: 0.06em;
-      margin-bottom: 8px;
-    }
-
-    .chips { display: flex; flex-wrap: wrap; gap: 5px; }
-    .chip {
-      font-size: 0.76rem;
-      background: #f0ede8;
-      color: #333;
-      padding: 3px 9px;
-      border-radius: 4px;
-      border: 1px solid #e0dbd3;
-    }
-
-    /* TIMELINE */
-    .timeline-item {
-      display: grid;
-      grid-template-columns: 64px 1fr;
-      gap: 12px;
-      margin-bottom: 14px;
-      align-items: baseline;
-    }
-
-    .t-year { font-size: 0.82rem; font-weight: 600; color: #aaa; }
-    .t-desc { font-size: 0.88rem; color: #555; }
-
-    /* CERT */
-    .cert-line { font-size: 0.9rem; color: #444; }
-
-    footer {
-      font-size: 0.78rem;
-      color: #ccc;
-      margin-top: 48px;
-    }
-
-    /* MOBILE */
-    @media (max-width: 720px) {
-      .layout { grid-template-columns: 1fr; }
-      .sidebar {
-        position: static;
-        height: auto;
-        flex-direction: row;
-        flex-wrap: wrap;
-        padding: 24px 20px;
-        gap: 16px;
-        border-right: none;
-        border-bottom: 1px solid #e5e0d8;
-      }
-      .sidebar-links { margin-top: 0; flex-direction: row; flex-wrap: wrap; }
-      .sidebar-nav { flex-direction: row; flex-wrap: wrap; }
-      .main { padding: 32px 20px; }
-      .skills-grid { grid-template-columns: 1fr; }
-    }
-  </style>
+    .sidebar-links{ margin-top: 0; flex-direction: row; flex-wrap: wrap; }
+    .sidebar-nav{ flex-direction: row; flex-wrap: wrap; }
+    .main{ padding: 36px 22px; }
+    .skills-grid{ grid-template-columns: 1fr; }
+  }
+</style>
 </head>
 <body>
 
 <div class="layout">
 
-  <!-- SIDEBAR -->
   <aside class="sidebar">
     <div>
+      <div class="avatar">S</div>
       <div class="sidebar-name">Sairam</div>
-      <div class="sidebar-role">AI/ML Student<br>Automation · Vision · Security</div>
+      <div class="sidebar-role">AI/ML Developer<br>Automation · Vision · Security</div>
     </div>
 
     <nav class="sidebar-nav">
@@ -262,30 +244,26 @@
     </nav>
 
     <div class="sidebar-links">
-      <a href="https://github.com/sairam-s0" target="_blank">⌥ GitHub</a>
-      <a href="https://www.linkedin.com/in/sairam-s-092871294/" target="_blank">⌥ LinkedIn</a>
-      <a href="mailto:sairam.1242006@gmail.com">⌥ Email</a>
-      <a href="https://discord.com/users/ram022743" target="_blank">⌥ Discord</a>
+      <a href="https://github.com/sairam-s0" target="_blank"><span class="dot"></span>GitHub</a>
+      <a href="https://www.linkedin.com/in/sairam-s-092871294/" target="_blank"><span class="dot"></span>LinkedIn</a>
+      <a href="mailto:sairam.1242006@gmail.com"><span class="dot"></span>Email</a>
     </div>
   </aside>
 
-  <!-- MAIN -->
   <main class="main">
 
-    <!-- HERO -->
     <section class="hero" id="about">
-      <h1>Hi, I'm Sairam 👋</h1>
+      <h1>Hi, I'm Sairam.</h1>
       <p>I'm an AI/ML student who likes building systems that automate the repetitive — data labeling pipelines, real-time detection, local AI workflows. Currently exploring n8n for workflow orchestration alongside local LLMs. On the side I poke around in cybersecurity because it's a good way to understand how systems actually work.</p>
     </section>
 
-    <!-- PROJECTS -->
     <section id="projects">
       <h2>Projects</h2>
 
       <div class="project" onclick="toggle(this)">
         <div class="project-header">
           <div>
-            <div class="project-title">🏷️ ActiveLabelingSystem</div>
+            <div class="project-title">ActiveLabelingSystem</div>
             <div class="project-sub">Active learning pipeline with zero-downtime model promotion</div>
           </div>
           <span class="chevron">▼</span>
@@ -299,7 +277,7 @@
               <li>Zero-downtime model promotion</li>
               <li>PyQt6 desktop GUI · Python · YOLOv8 · Ray · SQLite</li>
             </ul>
-            <a class="gh-link" href="https://github.com/sairam-s0/ActiveLabelingSystem" target="_blank">→ View on GitHub</a>
+            <a class="gh-link" href="https://github.com/sairam-s0/ActiveLabelingSystem" target="_blank">View on GitHub →</a>
           </div>
         </div>
       </div>
@@ -307,7 +285,29 @@
       <div class="project" onclick="toggle(this)">
         <div class="project-header">
           <div>
-            <div class="project-title">🤖 Local AI Automation</div>
+            <div class="project-title">Personal AI Assistant</div>
+            <div class="project-sub">Local-first assistant with memory, tasks, and calendar sync</div>
+          </div>
+          <span class="chevron">▼</span>
+        </div>
+        <div class="project-body">
+          <div class="project-body-inner">
+            <p>A local-first personal assistant built with FastAPI, Groq, SQLite, and a lightweight browser UI. It can chat, remember useful context, manage local tasks and reminders, report the current local time, and connect to Google Calendar when OAuth credentials are configured.</p>
+            <ul>
+              <li>Chat with persistent, useful context</li>
+              <li>Local task and reminder management</li>
+              <li>Optional Google Calendar integration via OAuth</li>
+              <li>FastAPI · Groq · SQLite · Browser UI</li>
+            </ul>
+            <a class="gh-link" href="https://github.com/sairam-s0/personal-ai-assistant" target="_blank">View on GitHub →</a>
+          </div>
+        </div>
+      </div>
+
+      <div class="project" onclick="toggle(this)">
+        <div class="project-header">
+          <div>
+            <div class="project-title">Local AI Automation</div>
             <div class="project-sub">Screenshot → OCR → local LLM, fully offline</div>
           </div>
           <span class="chevron">▼</span>
@@ -320,7 +320,7 @@
               <li>Runs Phi-4 Mini via Ollama locally</li>
               <li>Fully offline · Python · Ollama</li>
             </ul>
-            <a class="gh-link" href="https://github.com/sairam-s0/local_ai_automation" target="_blank">→ View on GitHub</a>
+            <a class="gh-link" href="https://github.com/sairam-s0/local_ai_automation" target="_blank">View on GitHub →</a>
           </div>
         </div>
       </div>
@@ -328,7 +328,7 @@
       <div class="project" onclick="toggle(this)">
         <div class="project-header">
           <div>
-            <div class="project-title">🪖 Helmet Detection System</div>
+            <div class="project-title">Helmet Detection System</div>
             <div class="project-sub">Real-time road safety detection — 85% mAP@0.5</div>
           </div>
           <span class="chevron">▼</span>
@@ -341,7 +341,7 @@
               <li>Live video via OpenCV</li>
               <li>Python · YOLOv8 · OpenCV</li>
             </ul>
-            <a class="gh-link" href="https://github.com/sairam-s0/helmetdection-using-yolo8m-opencv" target="_blank">→ View on GitHub</a>
+            <a class="gh-link" href="https://github.com/sairam-s0/helmetdection-using-yolo8m-opencv" target="_blank">View on GitHub →</a>
           </div>
         </div>
       </div>
@@ -349,7 +349,7 @@
       <div class="project" onclick="toggle(this)">
         <div class="project-header">
           <div>
-            <div class="project-title">📝 Metadata Editor Pro</div>
+            <div class="project-title">Metadata Editor Pro</div>
             <div class="project-sub">Privacy-focused metadata cleaner for images and docs</div>
           </div>
           <span class="chevron">▼</span>
@@ -362,7 +362,7 @@
               <li>Auto-backup before changes</li>
               <li>Python · Tkinter · Pillow · piexif</li>
             </ul>
-            <a class="gh-link" href="https://github.com/sairam-s0/mdata_alternator" target="_blank">→ View on GitHub</a>
+            <a class="gh-link" href="https://github.com/sairam-s0/mdata_alternator" target="_blank">View on GitHub →</a>
           </div>
         </div>
       </div>
@@ -370,7 +370,7 @@
       <div class="project" onclick="toggle(this)">
         <div class="project-header">
           <div>
-            <div class="project-title">🕵️ Ponzi Scheme Detection</div>
+            <div class="project-title">Ponzi Scheme Detection</div>
             <div class="project-sub">ML-based financial fraud detection — team project</div>
           </div>
           <span class="chevron">▼</span>
@@ -382,14 +382,13 @@
               <li>Transaction pattern analysis</li>
               <li>Anomaly detection · Python · Scikit-learn · Pandas</li>
             </ul>
-            <a class="gh-link" href="https://github.com/Vijay-31-08-2005/ponzi-scheme-detection" target="_blank">→ View on GitHub</a>
+            <a class="gh-link" href="https://github.com/Vijay-31-08-2005/ponzi-scheme-detection" target="_blank">View on GitHub →</a>
           </div>
         </div>
       </div>
 
     </section>
 
-    <!-- SKILLS -->
     <section id="skills">
       <h2>Skills</h2>
       <div class="skills-grid">
@@ -413,6 +412,7 @@
             <span class="chip">Ollama</span>
             <span class="chip">Phi-4 Mini</span>
             <span class="chip">Ray</span>
+            <span class="chip">FastAPI</span>
           </div>
         </div>
         <div>
@@ -436,7 +436,6 @@
       </div>
     </section>
 
-    <!-- TIMELINE -->
     <section id="timeline">
       <h2>Timeline</h2>
       <div class="timeline-item">
@@ -457,15 +456,17 @@
       </div>
     </section>
 
-    <!-- CONTACT -->
     <section id="contact">
       <h2>Contact</h2>
-      <p>
-        ✉ <a href="mailto:sairam.1242006@gmail.com">sairam.1242006@gmail.com</a><br>
-        💻 <a href="https://github.com/sairam-s0" target="_blank">github.com/sairam-s0</a><br>
-        🔗 <a href="https://www.linkedin.com/in/sairam-s-092871294/" target="_blank">linkedin.com/in/sairam-s</a><br>
-        🏅 <a href="https://www.credly.com/badges/bd229915-6b73-44c6-97d9-56bd471724f2/public_url" target="_blank">Cisco Junior Cybersecurity Analyst — Credly</a>
-      </p>
+      <div class="contact-card">
+        <p>Email — <a href="mailto:sairam.1242006@gmail.com">sairam.1242006@gmail.com</a></p>
+        <p>GitHub — <a href="https://github.com/sairam-s0" target="_blank">github.com/sairam-s0</a></p>
+        <p>LinkedIn — <a href="https://www.linkedin.com/in/sairam-s-092871294/" target="_blank">linkedin.com/in/sairam-s</a></p>
+        <div class="cert-badge">
+          <span class="dot"></span>
+          <a href="https://www.credly.com/badges/bd229915-6b73-44c6-97d9-56bd471724f2/public_url" target="_blank">Cisco Junior Cybersecurity Analyst — Credly</a>
+        </div>
+      </div>
     </section>
 
     <footer>Sairam · 2025</footer>
@@ -474,9 +475,7 @@
 </div>
 
 <script>
-  function toggle(card) {
-    card.classList.toggle('open');
-  }
+  function toggle(card){ card.classList.toggle('open'); }
 </script>
 
 </body>
