@@ -3,7 +3,8 @@
 <head>
 <meta charset="UTF-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-<title>Sairam — AI/ML Developer</title>
+<title>Sairam S — AI Agent & ML Engineer</title>
+<meta name="description" content="Fresher AI/ML engineer who has shipped multi-agent systems, sub-5ms RAG, and production CV pipelines. Open to roles from Jan 2027." />
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
 <style>
@@ -32,7 +33,6 @@
   a { color: var(--olive-dark); text-decoration: none; }
   a:hover { text-decoration: underline; }
 
-  /* LAYOUT */
   .layout{
     display: grid;
     grid-template-columns: 270px 1fr;
@@ -52,16 +52,10 @@
   }
 
   .avatar{
-    width: 52px;
-    height: 52px;
-    border-radius: 50%;
-    background: var(--olive);
-    color: #fff;
-    font-weight: 600;
-    font-size: 1.1rem;
-    display: flex;
-    align-items: center;
-    justify-content: center;
+    width: 52px; height: 52px; border-radius: 50%;
+    background: var(--olive); color: #fff;
+    font-weight: 600; font-size: 1.1rem;
+    display: flex; align-items: center; justify-content: center;
     margin-bottom: 14px;
   }
 
@@ -70,38 +64,26 @@
 
   .sidebar-nav{ display: flex; flex-direction: column; gap: 3px; }
   .sidebar-nav a{
-    font-size: 0.88rem;
-    font-weight: 500;
-    color: #5b5945;
-    padding: 8px 12px;
-    border-radius: 10px;
+    font-size: 0.88rem; font-weight: 500; color: #5b5945;
+    padding: 8px 12px; border-radius: 10px;
     transition: background 0.15s, color 0.15s;
   }
   .sidebar-nav a:hover{ background: #fff; color: var(--olive-dark); text-decoration: none; }
 
   .sidebar-links{ display: flex; flex-direction: column; gap: 9px; margin-top: auto; }
   .sidebar-links a{
-    font-size: 0.83rem;
-    color: var(--olive-dark);
-    font-weight: 500;
-    display: flex;
-    align-items: center;
-    gap: 8px;
+    font-size: 0.83rem; color: var(--olive-dark); font-weight: 500;
+    display: flex; align-items: center; gap: 8px;
   }
   .sidebar-links a:hover{ text-decoration: none; opacity: 0.7; }
   .dot{ width: 6px; height: 6px; border-radius: 50%; background: var(--olive); flex-shrink: 0; }
 
-  /* MAIN */
-  .main{ padding: 60px 70px 80px; max-width: 880px; }
+  .main{ padding: 60px 70px 80px; max-width: 900px; }
   section{ margin-bottom: 56px; }
 
   h2{
-    font-size: 0.74rem;
-    font-weight: 700;
-    letter-spacing: 0.09em;
-    text-transform: uppercase;
-    color: var(--muted);
-    margin-bottom: 18px;
+    font-size: 0.74rem; font-weight: 700; letter-spacing: 0.09em;
+    text-transform: uppercase; color: var(--muted); margin-bottom: 18px;
   }
 
   p{ color: #4d4a3e; margin-bottom: 10px; font-size: 0.94rem; }
@@ -109,118 +91,85 @@
   ul li{ margin-bottom: 5px; font-size: 0.88rem; }
 
   /* HERO */
-  .hero h1{
-    font-size: 2.05rem;
-    font-weight: 700;
-    color: var(--olive-dark);
-    margin-bottom: 12px;
-    line-height: 1.3;
+  .hero h1{ font-size: 2.05rem; font-weight: 700; color: var(--olive-dark); margin-bottom: 12px; line-height: 1.3; }
+  .hero p{ font-size: 0.97rem; color: #524f42; max-width: 600px; }
+  .status{
+    display: inline-flex; align-items: center; gap: 8px;
+    background: var(--olive-soft); border: 1px solid #e0e4d2;
+    color: var(--olive-dark); font-size: 0.8rem; font-weight: 600;
+    padding: 5px 14px; border-radius: 20px; margin-bottom: 18px;
   }
-  .hero p{ font-size: 0.97rem; color: #524f42; max-width: 540px; }
+  .cta-row{ display: flex; gap: 10px; flex-wrap: wrap; margin-top: 20px; }
+  .btn{
+    font-size: 0.86rem; font-weight: 600; padding: 9px 18px;
+    border-radius: 12px; border: 1px solid var(--olive);
+  }
+  .btn.primary{ background: var(--olive); color: #fff; }
+  .btn.ghost{ color: var(--olive-dark); background: transparent; }
+  .btn:hover{ text-decoration: none; opacity: 0.85; }
+
+  .stats{ display: grid; grid-template-columns: repeat(4, 1fr); gap: 12px; margin-top: 30px; }
+  .stat{ background: var(--card); border: 1px solid var(--border); border-radius: 14px; padding: 14px 16px; }
+  .stat b{ display: block; font-size: 1.15rem; color: var(--olive-dark); }
+  .stat span{ font-size: 0.76rem; color: var(--muted); line-height: 1.4; display: block; }
+
+  /* EXPERIENCE */
+  .exp{
+    background: var(--card); border: 1px solid var(--border);
+    border-radius: var(--radius); padding: 20px 24px; margin-bottom: 12px;
+  }
+  .exp-top{ display: flex; justify-content: space-between; gap: 12px; flex-wrap: wrap; }
+  .exp-role{ font-weight: 600; font-size: 0.97rem; }
+  .exp-org{ font-size: 0.83rem; color: var(--muted); }
+  .exp-date{ font-size: 0.8rem; font-weight: 600; color: var(--olive); white-space: nowrap; }
+  .exp ul{ margin-top: 10px; }
+  .why{ margin-top: 10px; font-size: 0.84rem; color: var(--olive-dark); background: var(--olive-soft); padding: 9px 13px; border-radius: 10px; }
 
   /* PROJECTS */
   .project{
-    border: 1px solid var(--border);
-    border-radius: var(--radius);
-    margin-bottom: 12px;
-    background: var(--card);
-    overflow: hidden;
+    border: 1px solid var(--border); border-radius: var(--radius);
+    margin-bottom: 12px; background: var(--card); overflow: hidden;
     transition: border-color 0.15s;
   }
   .project:hover{ border-color: #d4cdb8; }
-
   .project-header{
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    padding: 18px 22px;
-    cursor: pointer;
-    user-select: none;
+    display: flex; justify-content: space-between; align-items: center;
+    padding: 18px 22px; cursor: pointer; user-select: none;
   }
-
   .project-title{ font-weight: 600; font-size: 0.95rem; color: var(--text); }
   .project-sub{ font-size: 0.81rem; color: var(--muted); margin-top: 3px; }
-
-  .chevron{
-    font-size: 0.7rem;
-    color: #c2bca6;
-    transition: transform 0.25s;
-    flex-shrink: 0;
-    margin-left: 14px;
-  }
+  .chevron{ font-size: 0.7rem; color: #c2bca6; transition: transform 0.25s; flex-shrink: 0; margin-left: 14px; }
   .project.open .chevron{ transform: rotate(180deg); color: var(--olive); }
-
   .project-body{ max-height: 0; overflow: hidden; transition: max-height 0.35s ease; }
-  .project.open .project-body{ max-height: 420px; }
-
+  .project.open .project-body{ max-height: 900px; }
   .project-body-inner{ padding: 0 22px 22px; border-top: 1px solid #f1ede1; padding-top: 16px; }
   .project-body-inner p{ font-size: 0.87rem; margin-bottom: 12px; color: #5b5847; }
-  .project-body-inner ul{ font-size: 0.85rem; margin-bottom: 16px; }
-
+  .project-body-inner ul{ font-size: 0.85rem; margin-bottom: 14px; }
+  .label{ font-size: 0.72rem; font-weight: 700; letter-spacing: 0.06em; text-transform: uppercase; color: var(--olive); display: block; margin-bottom: 3px; }
+  .tech{ font-size: 0.78rem; color: var(--muted); margin-bottom: 12px !important; }
   .gh-link{ font-size: 0.85rem; font-weight: 600; color: var(--olive-dark); }
 
   /* SKILLS */
   .skills-grid{ display: grid; grid-template-columns: 1fr 1fr; gap: 26px 24px; }
-  .skill-group-label{
-    font-size: 0.74rem;
-    font-weight: 700;
-    color: var(--olive);
-    text-transform: uppercase;
-    letter-spacing: 0.06em;
-    margin-bottom: 10px;
-  }
+  .skill-group-label{ font-size: 0.74rem; font-weight: 700; color: var(--olive); text-transform: uppercase; letter-spacing: 0.06em; margin-bottom: 10px; }
   .chips{ display: flex; flex-wrap: wrap; gap: 7px; }
-  .chip{
-    font-size: 0.78rem;
-    background: var(--olive-soft);
-    color: #4a5535;
-    padding: 5px 12px;
-    border-radius: 20px;
-    border: 1px solid #e0e4d2;
-  }
-
-  /* TIMELINE */
-  .timeline-item{
-    display: grid;
-    grid-template-columns: 70px 1fr;
-    gap: 14px;
-    margin-bottom: 16px;
-    align-items: baseline;
-  }
-  .t-year{ font-size: 0.83rem; font-weight: 700; color: var(--olive); }
-  .t-desc{ font-size: 0.89rem; color: #4d4a3e; }
+  .chip{ font-size: 0.78rem; background: var(--olive-soft); color: #4a5535; padding: 5px 12px; border-radius: 20px; border: 1px solid #e0e4d2; }
 
   /* CONTACT */
-  .contact-card{
-    background: var(--card);
-    border: 1px solid var(--border);
-    border-radius: var(--radius);
-    padding: 24px 26px;
-  }
+  .contact-card{ background: var(--card); border: 1px solid var(--border); border-radius: var(--radius); padding: 24px 26px; }
   .contact-card p{ font-size: 0.92rem; margin-bottom: 8px; }
-  .cert-badge{
-    display: inline-flex;
-    align-items: center;
-    gap: 8px;
-    margin-top: 10px;
-    font-size: 0.85rem;
-    font-weight: 500;
-  }
+  .cert-badge{ display: flex; align-items: center; gap: 8px; margin-top: 10px; font-size: 0.85rem; font-weight: 500; }
 
-  footer{ font-size: 0.78rem; color: #c5c0ac; margin-top: 50px; }
+  footer{ font-size: 0.78rem; color: #b5b09a; margin-top: 50px; }
 
   @media (max-width: 720px){
     .layout{ grid-template-columns: 1fr; }
-    .sidebar{
-      position: static; height: auto;
-      flex-direction: row; flex-wrap: wrap;
-      padding: 26px 22px; gap: 18px;
-      border-right: none; border-bottom: 1px solid var(--border);
-    }
+    .sidebar{ position: static; height: auto; flex-direction: row; flex-wrap: wrap; padding: 26px 22px; gap: 18px; border-right: none; border-bottom: 1px solid var(--border); }
     .sidebar-links{ margin-top: 0; flex-direction: row; flex-wrap: wrap; }
     .sidebar-nav{ flex-direction: row; flex-wrap: wrap; }
     .main{ padding: 36px 22px; }
     .skills-grid{ grid-template-columns: 1fr; }
+    .stats{ grid-template-columns: 1fr 1fr; }
   }
 </style>
 </head>
@@ -231,19 +180,20 @@
   <aside class="sidebar">
     <div>
       <div class="avatar">S</div>
-      <div class="sidebar-name">Sairam</div>
-      <div class="sidebar-role">AI/ML Developer<br>Automation · Vision · Security</div>
+      <div class="sidebar-name">Sairam S</div>
+      <div class="sidebar-role">AI Agent & ML Engineer<br>Agents · RAG · Computer Vision</div>
     </div>
 
     <nav class="sidebar-nav">
       <a href="#about">About</a>
+      <a href="#experience">Experience</a>
       <a href="#projects">Projects</a>
       <a href="#skills">Skills</a>
-      <a href="#timeline">Timeline</a>
       <a href="#contact">Contact</a>
     </nav>
 
     <div class="sidebar-links">
+      <a href="resume.pdf" target="_blank"><span class="dot"></span>Resume (PDF)</a>
       <a href="https://github.com/sairam-s0" target="_blank"><span class="dot"></span>GitHub</a>
       <a href="https://www.linkedin.com/in/sairam-s-092871294/" target="_blank"><span class="dot"></span>LinkedIn</a>
       <a href="mailto:sairam.1242006@gmail.com"><span class="dot"></span>Email</a>
@@ -253,30 +203,147 @@
   <main class="main">
 
     <section class="hero" id="about">
-      <h1>Hi, I'm Sairam.</h1>
-      <p>I'm an AI/ML student who likes building systems that automate the repetitive — data labeling pipelines, real-time detection, local AI workflows. Currently exploring n8n for workflow orchestration alongside local LLMs. On the side I poke around in cybersecurity because it's a good way to understand how systems actually work.</p>
+      <div class="status"><span class="dot"></span>Final-year B.E. (AI & ML) · Graduating Jan 2027 · Open to fresher roles</div>
+      <h1>I build AI systems that do real work, not just demos.</h1>
+      <p>I'm an AI agent and ML engineer. I've built multi-agent systems that run live cloud API calls, a retrieval engine that answers in under 5ms without an LLM, and vision pipelines handling 10+ video streams. I've also run a production server for ~7,000 members, so I care about what happens after the notebook: latency, uptime, and whether the thing actually saves someone time.</p>
+      <p>Currently interning on multi-agent workflows at Edulenza Learning, and looking for a full-time AI/ML, agent, or computer vision role.</p>
+
+      <div class="cta-row">
+        <a class="btn primary" href="mailto:sairam.1242006@gmail.com">Hire me / Get in touch</a>
+        <a class="btn ghost" href="resume.pdf" target="_blank">Download resume</a>
+        <a class="btn ghost" href="https://github.com/sairam-s0" target="_blank">See my code</a>
+      </div>
+
+      <div class="stats">
+        <div class="stat"><b>&lt;5 ms</b><span>end-to-end latency, ZappRagg RAG engine</span></div>
+        <div class="stat"><b>60–80%</b><span>less labeling effort via active learning</span></div>
+        <div class="stat"><b>~7,000</b><span>members served by a production server I maintained</span></div>
+        <div class="stat"><b>&lt;5 min</b><span>downtime when deploying production fixes</span></div>
+      </div>
+    </section>
+
+    <section id="experience">
+      <h2>Experience</h2>
+
+      <div class="exp">
+        <div class="exp-top">
+          <div>
+            <div class="exp-role">AI Automation Intern</div>
+            <div class="exp-org">Edulenza Learning LLP</div>
+          </div>
+          <div class="exp-date">Aug 2026 – Present</div>
+        </div>
+        <ul>
+          <li>Contribute to multi-agent systems built on LangChain and LangGraph, covering workflow design and orchestration.</li>
+          <li>Reviewed agent and recommendation-system implementations and flagged where workflows weren't integrated properly.</li>
+          <li>Audited the lead-capture automation and found missing email acknowledgements and follow-up steps.</li>
+        </ul>
+        <div class="why">Why it matters: a lead that never gets a reply is a lost customer. Finding that gap means more of the leads a business already pays for turn into conversations.</div>
+      </div>
+
+      <div class="exp">
+        <div class="exp-top">
+          <div>
+            <div class="exp-role">Freelance Software Engineer — AI Agents</div>
+            <div class="exp-org">Applivo</div>
+          </div>
+          <div class="exp-date">Freelance</div>
+        </div>
+        <ul>
+          <li>Built multi-agent LLM systems with tool calling, memory, and API/database integrations to automate client workflows.</li>
+          <li>Reduced latency and improved accuracy and precision through RAG retrieval tuning (FAISS), prompt engineering, and output validation.</li>
+        </ul>
+        <div class="why">Why it matters: agents only help if they're fast and right. I tune retrieval and validation so the answers can be trusted without a human re-checking each one.</div>
+      </div>
+
+      <div class="exp">
+        <div class="exp-top">
+          <div>
+            <div class="exp-role">Freelance Software Engineer — Cloud Deployment & Production Support</div>
+            <div class="exp-org">Independent</div>
+          </div>
+          <div class="exp-date">Freelance</div>
+        </div>
+        <ul>
+          <li>Configured and maintained a cloud-hosted production environment serving ~7,000 members.</li>
+          <li>Diagnosed live production issues and shipped fixes with under five minutes of downtime.</li>
+        </ul>
+        <div class="why">Why it matters: I've been on the hook when real users were affected, so I build with deployment and recovery in mind from the start.</div>
+      </div>
+
+      <div class="exp">
+        <div class="exp-top">
+          <div>
+            <div class="exp-role">AI/ML Intern</div>
+            <div class="exp-org">Tamizhan Skills (Remote)</div>
+          </div>
+          <div class="exp-date">Mar 2025 – May 2025</div>
+        </div>
+        <ul>
+          <li>Built computer vision pipelines (YOLOv8, PaddleOCR, OpenCV) running on 10+ concurrent video streams; improved detection accuracy by ~15%.</li>
+          <li>Set up a Docker-based CI/CD retraining workflow with Telegram alerts; cut inference latency by ~30% through batching.</li>
+        </ul>
+        <div class="why">Why it matters: this is the kind of pipeline used for CCTV monitoring, safety compliance, and inspection, where models must keep running and keep improving without someone babysitting them.</div>
+      </div>
     </section>
 
     <section id="projects">
       <h2>Projects</h2>
 
-      <div class="project" onclick="toggle(this)">
+      <div class="project open" onclick="toggle(this)">
         <div class="project-header">
           <div>
-            <div class="project-title">ActiveLabelingSystem</div>
-            <div class="project-sub">Active learning pipeline with zero-downtime model promotion</div>
+            <div class="project-title">ZappRagg — Sub-Millisecond Extractive RAG Engine</div>
+            <div class="project-sub">&lt;5ms end-to-end · 84% cross-lingual Recall@5 · no LLM in the loop</div>
           </div>
           <span class="chevron">▼</span>
         </div>
         <div class="project-body">
           <div class="project-body-inner">
-            <p>Humans label, uncertain samples get routed back via confidence/entropy scores, and the model trains in the background — promoted with zero downtime when ready.</p>
-            <ul>
-              <li>Human-in-the-loop labeling</li>
-              <li>Background shadow training while you label</li>
-              <li>Zero-downtime model promotion</li>
-              <li>PyQt6 desktop GUI · Python · YOLOv8 · Ray · SQLite</li>
-            </ul>
+            <span class="label">What it is</span>
+            <p>A 3-tier retrieval pipeline (FAISS IVF-SQ8, FP16 memory-mapped rescoring, ONNX INT8 extractive QA) that returns answers pulled directly from source text. Tested on the 14-language MSMARCO-XI benchmark and deployed on an Azure VM with hardware-aware ONNX dispatch across CPU, CUDA, and DirectML.</p>
+            <span class="label">Where it helps in real life</span>
+            <p>Customer-support and internal-knowledge search where answers must be instant, cheap, and traceable to a source. With no generative model, it can't invent an answer, and it runs without per-query LLM costs. Multilingual support matters for Indian users searching in their own language.</p>
+            <p class="tech">Python · ONNX Runtime · FAISS · FastAPI · SQLite · Azure</p>
+            <a class="gh-link" href="https://github.com/allanhanan/ZappRagg" target="_blank">View on GitHub →</a>
+          </div>
+        </div>
+      </div>
+
+      <div class="project" onclick="toggle(this)">
+        <div class="project-header">
+          <div>
+            <div class="project-title">Eco-Cloud AI — Multi-Agent Cloud Optimization</div>
+            <div class="project-sub">Agents that read live GCP metrics and estimate cost and carbon impact</div>
+          </div>
+          <span class="chevron">▼</span>
+        </div>
+        <div class="project-body">
+          <div class="project-body-inner">
+            <span class="label">What it is</span>
+            <p>Five cooperating agents (Compute, Monitoring, Optimization, Forecasting, Impact) behind a natural-language interface. They execute real Google Cloud API calls, pull live metrics from Cloud Monitoring, forecast usage, and quantify the cost and carbon savings of a change.</p>
+            <span class="label">Where it helps in real life</span>
+            <p>Teams routinely overpay for idle cloud resources and have no easy way to see the emissions side. This lets a non-expert ask "what's wasting money?" and get a concrete, measured answer.</p>
+            <p class="tech">Python · Django · Streamlit · LLM Agents · GCP Compute Engine · Cloud Monitoring API</p>
+          </div>
+        </div>
+      </div>
+
+      <div class="project" onclick="toggle(this)">
+        <div class="project-header">
+          <div>
+            <div class="project-title">LabelOps / ActiveLabelingSystem</div>
+            <div class="project-sub">Cuts labeling effort 60–80% · published on PyPI</div>
+          </div>
+          <span class="chevron">▼</span>
+        </div>
+        <div class="project-body">
+          <div class="project-body-inner">
+            <span class="label">What it is</span>
+            <p>A human-in-the-loop annotation tool. Entropy-based sampling picks the images the model is least sure about, so people only label what matters, while a model retrains in the background and is hot-swapped in with zero downtime. Includes a FastAPI backend with token auth, dataset versioning, Ray/Docker retraining pipelines, and 85%+ test coverage.</p>
+            <span class="label">Where it helps in real life</span>
+            <p>Labeling is the slowest and most expensive part of any vision project. Any team building a detector (defects on a factory line, crops, safety gear) can reach a usable model with far fewer hand-labeled images.</p>
+            <p class="tech">PyQt6 · Ray · YOLOv8 · FastAPI · SQLite · Docker</p>
             <a class="gh-link" href="https://github.com/sairam-s0/ActiveLabelingSystem" target="_blank">View on GitHub →</a>
           </div>
         </div>
@@ -285,21 +352,39 @@
       <div class="project" onclick="toggle(this)">
         <div class="project-header">
           <div>
-            <div class="project-title">Personal AI Assistant</div>
-            <div class="project-sub">Local-first assistant with memory, tasks, and calendar sync</div>
+            <div class="project-title">Jarvis — Personal AI Assistant</div>
+            <div class="project-sub">Multi-agent assistant with Google Calendar via MCP · deployed on Azure</div>
           </div>
           <span class="chevron">▼</span>
         </div>
         <div class="project-body">
           <div class="project-body-inner">
-            <p>A local-first personal assistant built with FastAPI, Groq, SQLite, and a lightweight browser UI. It can chat, remember useful context, manage local tasks and reminders, report the current local time, and connect to Google Calendar when OAuth credentials are configured.</p>
-            <ul>
-              <li>Chat with persistent, useful context</li>
-              <li>Local task and reminder management</li>
-              <li>Optional Google Calendar integration via OAuth</li>
-              <li>FastAPI · Groq · SQLite · Browser UI</li>
-            </ul>
+            <span class="label">What it is</span>
+            <p>Specialized agents handle job search, scheduling, and task automation. Tool-using agents reach Google Calendar through MCP with OAuth, backed by a FastAPI service on Azure App Service. A local-first version adds persistent memory, tasks, and reminders (FastAPI, Groq, SQLite).</p>
+            <span class="label">Where it helps in real life</span>
+            <p>Shows the pattern behind most business agent work: an LLM that doesn't just talk but takes actions in the tools people already use, with proper auth.</p>
+            <p class="tech">Python · FastAPI · Ollama · MCP · OpenRouter · Groq · SQLite · Google Calendar API</p>
             <a class="gh-link" href="https://github.com/sairam-s0/personal-ai-assistant" target="_blank">View on GitHub →</a>
+          </div>
+        </div>
+      </div>
+
+      <div class="project" onclick="toggle(this)">
+        <div class="project-header">
+          <div>
+            <div class="project-title">Helmet Detection System</div>
+            <div class="project-sub">Real-time road safety detection · ~85% mAP@0.5</div>
+          </div>
+          <span class="chevron">▼</span>
+        </div>
+        <div class="project-body">
+          <div class="project-body-inner">
+            <span class="label">What it is</span>
+            <p>A fine-tuned YOLOv8 model running on live video through OpenCV to detect riders with and without helmets.</p>
+            <span class="label">Where it helps in real life</span>
+            <p>Automates helmet-compliance checks that otherwise need a person watching a camera feed, useful for traffic enforcement, campuses, and construction or factory sites.</p>
+            <p class="tech">Python · YOLOv8 · OpenCV</p>
+            <a class="gh-link" href="https://github.com/sairam-s0/helmetdection-using-yolo8m-opencv" target="_blank">View on GitHub →</a>
           </div>
         </div>
       </div>
@@ -314,12 +399,11 @@
         </div>
         <div class="project-body">
           <div class="project-body-inner">
-            <p>Captures a screenshot, extracts text via OCR, and sends it to Phi-4 Mini locally via Ollama — no cloud, no API keys.</p>
-            <ul>
-              <li>Screenshot-based input with OCR</li>
-              <li>Runs Phi-4 Mini via Ollama locally</li>
-              <li>Fully offline · Python · Ollama</li>
-            </ul>
+            <span class="label">What it is</span>
+            <p>Captures the screen, extracts text with OCR, and sends it to Phi-4 Mini running locally through Ollama. No cloud, no API keys, no data leaving the machine.</p>
+            <span class="label">Where it helps in real life</span>
+            <p>For workplaces that can't send documents to a third-party API (legal, health, finance), this is the template for useful AI that stays on-premise.</p>
+            <p class="tech">Python · Ollama · Phi-4 Mini · OCR</p>
             <a class="gh-link" href="https://github.com/sairam-s0/local_ai_automation" target="_blank">View on GitHub →</a>
           </div>
         </div>
@@ -328,60 +412,18 @@
       <div class="project" onclick="toggle(this)">
         <div class="project-header">
           <div>
-            <div class="project-title">Helmet Detection System</div>
-            <div class="project-sub">Real-time road safety detection — 85% mAP@0.5</div>
-          </div>
-          <span class="chevron">▼</span>
-        </div>
-        <div class="project-body">
-          <div class="project-body-inner">
-            <p>Real-time helmet detection on live video for road safety automation using a fine-tuned YOLOv8 model.</p>
-            <ul>
-              <li>85% mAP@0.5</li>
-              <li>Live video via OpenCV</li>
-              <li>Python · YOLOv8 · OpenCV</li>
-            </ul>
-            <a class="gh-link" href="https://github.com/sairam-s0/helmetdection-using-yolo8m-opencv" target="_blank">View on GitHub →</a>
-          </div>
-        </div>
-      </div>
-
-      <div class="project" onclick="toggle(this)">
-        <div class="project-header">
-          <div>
-            <div class="project-title">Metadata Editor Pro</div>
-            <div class="project-sub">Privacy-focused metadata cleaner for images and docs</div>
-          </div>
-          <span class="chevron">▼</span>
-        </div>
-        <div class="project-body">
-          <div class="project-body-inner">
-            <p>Desktop tool to view, edit, or strip metadata from images and documents — auto-backs up before any changes.</p>
-            <ul>
-              <li>Supports images and documents</li>
-              <li>Auto-backup before changes</li>
-              <li>Python · Tkinter · Pillow · piexif</li>
-            </ul>
-            <a class="gh-link" href="https://github.com/sairam-s0/mdata_alternator" target="_blank">View on GitHub →</a>
-          </div>
-        </div>
-      </div>
-
-      <div class="project" onclick="toggle(this)">
-        <div class="project-header">
-          <div>
             <div class="project-title">Ponzi Scheme Detection</div>
-            <div class="project-sub">ML-based financial fraud detection — team project</div>
+            <div class="project-sub">Anomaly detection on transaction data · team project</div>
           </div>
           <span class="chevron">▼</span>
         </div>
         <div class="project-body">
           <div class="project-body-inner">
-            <p>Team project applying anomaly detection to flag potential Ponzi schemes from financial transaction data.</p>
-            <ul>
-              <li>Transaction pattern analysis</li>
-              <li>Anomaly detection · Python · Scikit-learn · Pandas</li>
-            </ul>
+            <span class="label">What it is</span>
+            <p>An ML system that flags suspicious transaction patterns using anomaly analysis on financial data.</p>
+            <span class="label">Where it helps in real life</span>
+            <p>Early flagging of fraud-like behavior so investigators or compliance teams review the riskiest accounts first.</p>
+            <p class="tech">Python · Scikit-learn · Pandas</p>
             <a class="gh-link" href="https://github.com/Vijay-31-08-2005/ponzi-scheme-detection" target="_blank">View on GitHub →</a>
           </div>
         </div>
@@ -393,83 +435,86 @@
       <h2>Skills</h2>
       <div class="skills-grid">
         <div>
-          <div class="skill-group-label">ML / AI</div>
+          <div class="skill-group-label">AI Agents & LLM</div>
+          <div class="chips">
+            <span class="chip">LangChain</span>
+            <span class="chip">LangGraph</span>
+            <span class="chip">MCP</span>
+            <span class="chip">Tool Calling</span>
+            <span class="chip">RAG</span>
+            <span class="chip">Ollama</span>
+            <span class="chip">OpenRouter</span>
+            <span class="chip">ChromaDB</span>
+          </div>
+        </div>
+        <div>
+          <div class="skill-group-label">ML & Computer Vision</div>
+          <div class="chips">
+            <span class="chip">PyTorch</span>
+            <span class="chip">TensorFlow/Keras</span>
+            <span class="chip">YOLOv8</span>
+            <span class="chip">SAM</span>
+            <span class="chip">OpenCV</span>
+            <span class="chip">PaddleOCR</span>
+            <span class="chip">ByteTrack</span>
+            <span class="chip">ONNX Runtime</span>
+            <span class="chip">FAISS</span>
+            <span class="chip">scikit-learn</span>
+          </div>
+        </div>
+        <div>
+          <div class="skill-group-label">Backend & Automation</div>
           <div class="chips">
             <span class="chip">Python</span>
-            <span class="chip">PyTorch</span>
-            <span class="chip">TensorFlow</span>
-            <span class="chip">Scikit-learn</span>
-            <span class="chip">YOLOv8</span>
-            <span class="chip">OpenCV</span>
-            <span class="chip">NumPy</span>
-            <span class="chip">Pandas</span>
-          </div>
-        </div>
-        <div>
-          <div class="skill-group-label">Automation</div>
-          <div class="chips">
-            <span class="chip">n8n</span>
-            <span class="chip">Ollama</span>
-            <span class="chip">Phi-4 Mini</span>
-            <span class="chip">Ray</span>
             <span class="chip">FastAPI</span>
+            <span class="chip">Flask</span>
+            <span class="chip">Django</span>
+            <span class="chip">REST APIs</span>
+            <span class="chip">OAuth</span>
+            <span class="chip">Docker</span>
+            <span class="chip">CI/CD</span>
+            <span class="chip">n8n</span>
+            <span class="chip">Zapier</span>
           </div>
         </div>
         <div>
-          <div class="skill-group-label">Security</div>
+          <div class="skill-group-label">Cloud & Data</div>
           <div class="chips">
-            <span class="chip">Kali Linux</span>
-            <span class="chip">Wireshark</span>
-            <span class="chip">Burp Suite</span>
-          </div>
-        </div>
-        <div>
-          <div class="skill-group-label">Database & Tools</div>
-          <div class="chips">
-            <span class="chip">MySQL</span>
+            <span class="chip">GCP</span>
+            <span class="chip">Azure</span>
+            <span class="chip">AWS</span>
+            <span class="chip">Kubernetes</span>
+            <span class="chip">SQL</span>
             <span class="chip">SQLite</span>
+            <span class="chip">Java</span>
+            <span class="chip">C</span>
             <span class="chip">Git</span>
-            <span class="chip">Linux</span>
-            <span class="chip">VS Code</span>
           </div>
         </div>
-      </div>
-    </section>
-
-    <section id="timeline">
-      <h2>Timeline</h2>
-      <div class="timeline-item">
-        <span class="t-year">2022</span>
-        <span class="t-desc">Started with ML. Thought it was magic. Still kind of is.</span>
-      </div>
-      <div class="timeline-item">
-        <span class="t-year">2023</span>
-        <span class="t-desc">Built first serious project — helmet detection. Satisfying to watch it actually work.</span>
-      </div>
-      <div class="timeline-item">
-        <span class="t-year">2024</span>
-        <span class="t-desc">Got deeper into cybersecurity and fraud analytics. Earned Cisco Junior Cybersecurity Analyst cert.</span>
-      </div>
-      <div class="timeline-item">
-        <span class="t-year">2025 →</span>
-        <span class="t-desc">Building automation pipelines with n8n, local AI, and active learning systems.</span>
       </div>
     </section>
 
     <section id="contact">
-      <h2>Contact</h2>
+      <h2>Education, Certifications & Contact</h2>
       <div class="contact-card">
-        <p>Email — <a href="mailto:sairam.1242006@gmail.com">sairam.1242006@gmail.com</a></p>
-        <p>GitHub — <a href="https://github.com/sairam-s0" target="_blank">github.com/sairam-s0</a></p>
-        <p>LinkedIn — <a href="https://www.linkedin.com/in/sairam-s0/" target="_blank">linkedin.com/in/sairam-s0</a></p>
+        <p><b>B.E. Computer Science (AI & ML)</b> — Saranathan College of Engineering, Trichy · Expected Jan 2027 · CGPA 7.89/10</p>
         <div class="cert-badge">
           <span class="dot"></span>
           <a href="https://www.credly.com/badges/bd229915-6b73-44c6-97d9-56bd471724f2/public_url" target="_blank">Cisco Junior Cybersecurity Analyst — Credly</a>
         </div>
+        <div class="cert-badge">
+          <span class="dot"></span>
+          <span>Foundational Course on Applied Machine Learning and AI — CII × HP (Jun 2026)</span>
+        </div>
+        <br>
+        <p>Hiring for an AI, agent, or computer vision role? Email me and I'll reply fast.</p>
+        <p>Email — <a href="mailto:sairam.1242006@gmail.com">sairam.1242006@gmail.com</a></p>
+        <p>GitHub — <a href="https://github.com/sairam-s0" target="_blank">github.com/sairam-s0</a></p>
+        <p>LinkedIn — <a href="https://www.linkedin.com/in/sairam-s-092871294/" target="_blank">linkedin.com/in/sairam-s-092871294</a></p>
       </div>
     </section>
 
-    <footer>Sairam · 2025</footer>
+    <footer>Sairam S · 2026</footer>
 
   </main>
 </div>
