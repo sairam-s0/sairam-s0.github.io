@@ -311,6 +311,46 @@
       <div class="project" onclick="toggle(this)">
         <div class="project-header">
           <div>
+            <div class="project-title">AutoSocial Poster — AI Social Publishing Desktop App</div>
+            <div class="project-sub">Drafts, schedules &amp; publishes to LinkedIn and Reddit · secrets in a Windows DPAPI vault</div>
+          </div>
+          <span class="chevron">▼</span>
+        </div>
+        <div class="project-body">
+          <div class="project-body-inner">
+            <span class="label">What it is</span>
+            <p>A local-first Windows desktop app (FastAPI backend, React 19 UI, packaged with PyInstaller and an Inno Setup installer). Groq AI turns one brief into platform-native LinkedIn and Reddit drafts, which can be edited, published instantly, or scheduled through a background scheduler with startup catch-up for missed posts. OAuth 2.0 PKCE handles account connections, and tokens and API keys are kept in the Windows DPAPI vault, never in plaintext. Built-in safeguards include a daily post cap, a 7-day duplicate-content guard, and an atomic idempotency lock against double-posting.</p>
+            <span class="label">Where it helps in real life</span>
+            <p>Founders and freelancers know they should post consistently but rarely have the time. This turns idea-to-published into minutes while keeping their credentials on their own machine, and the safeguards protect accounts from the spam flags that careless automation triggers.</p>
+            <p class="tech">Python · FastAPI · React 19 · SQLite (WAL) · Groq · OAuth 2.0 PKCE · Windows DPAPI · PyInstaller · Inno Setup</p>
+            <a class="gh-link" href="https://github.com/sairam-s0/social-media-posting-automation" target="_blank">View on GitHub →</a>
+          </div>
+        </div>
+      </div>
+
+      <div class="project" onclick="toggle(this)">
+        <div class="project-header">
+          <div>
+            <div class="project-title">LeadPulse — Social Lead Discovery Engine</div>
+            <div class="project-sub">Finds people already asking for services · LinkedIn, X, Reddit &amp; web · Windows + Android</div>
+          </div>
+          <span class="chevron">▼</span>
+        </div>
+        <div class="project-body">
+          <div class="project-body-inner">
+            <span class="label">What it is</span>
+            <p>A lead-finding system for freelancers and agencies. It searches public sources through Exa over MCP, then scores posts with a deterministic rule engine (explicit signals, keywords, and rejection rules instead of LLM judgment) so results are predictable and easy to inspect. It filters out job seekers and self-promotion, extracts structured lead data without guessing missing fields, deduplicates by normalized URL, and stores everything in SQLite. A scheduler runs discovery automatically, with Telegram and email notifications, CSV/Excel export, and an Android app (Capacitor) that pairs with the desktop backend by QR code.</p>
+            <span class="label">Where it helps in real life</span>
+            <p>People publicly describe what they need all the time, and finding those posts by hand means hours of searching and sorting. LeadPulse turns that into a reviewable queue of real prospects, so a small agency spends its time on conversations instead of searching.</p>
+            <p class="tech">Python · Flask · SQLAlchemy · React (Vite) · Capacitor · APScheduler · Exa (MCP) · Telegram Bot API · OpenPyXL · Pytest</p>
+            <a class="gh-link" href="https://github.com/sairam-s0/social-media-lead-finder" target="_blank">View on GitHub →</a>
+          </div>
+        </div>
+      </div>
+
+      <div class="project" onclick="toggle(this)">
+        <div class="project-header">
+          <div>
             <div class="project-title">Eco-Cloud AI — Multi-Agent Cloud Optimization</div>
             <div class="project-sub">Agents that read live GCP metrics and estimate cost and carbon impact</div>
           </div>
